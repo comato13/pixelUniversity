@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=5 format=3 uid="uid://dc03w74gahs0t"]
 
 [ext_resource type="Shader" path="res://scenes/scroll.gdshader" id="1_wepn0"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="2_glsmo"]
+[ext_resource type="Texture2D" uid="uid://c72yt1sucxl40" path="res://assets/graphic/openbook.png" id="3_4bxy2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 326.0
 offset_bottom = 178.0
 color = Color(0.278073, 0.708546, 0.755068, 1)
@@ -23,6 +25,7 @@ color = Color(0.278073, 0.708546, 0.755068, 1)
 texture_filter = 5
 texture_repeat = 2
 material = SubResource("ShaderMaterial_apox7")
+layout_mode = 0
 offset_left = -130.0
 offset_top = -166.0
 offset_right = 473.0
@@ -31,3 +34,8 @@ texture = ExtResource("2_glsmo")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
+
+[node name="Openbook" type="Sprite2D" parent="."]
+position = Vector2(163, 89)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_4bxy2")
