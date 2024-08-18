@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://fy568csmg7xm"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jtpdw"]
+[ext_resource type="Shader" path="res://scenes/scroll.gdshader" id="2_xtmba"]
+[ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="3_kitwn"]
+[ext_resource type="Texture2D" uid="uid://cpcyvffkdxlsr" path="res://assets/graphic/mainmenu.png" id="4_sybin"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_damc1"]
+shader = ExtResource("2_xtmba")
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jtpdw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 178.0
+color = Color(0.278073, 0.708546, 0.755068, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 5
+texture_repeat = 2
+material = SubResource("ShaderMaterial_damc1")
+layout_mode = 0
+offset_left = -130.0
+offset_top = -166.0
+offset_right = 473.0
+offset_bottom = 346.0
+texture = ExtResource("3_kitwn")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Mainmenu" type="Sprite2D" parent="."]
+position = Vector2(161, 86)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("4_sybin")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.195
+offset_top = -98.155
+offset_right = 96.805
+offset_bottom = 63.845
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.585, 0.585)
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+flat = true
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+flat = true
+
+[node name="Setting" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]

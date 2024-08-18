@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://c2xxmcovwd14e"]
 
-[ext_resource type="Texture2D" uid="uid://d35t5xhdwfpkk" path="res://assets/tilesets/atlas.png" id="1_v5dlg"]
-[ext_resource type="PackedScene" uid="uid://coroaa82j85le" path="res://scenes/player.tscn" id="2_vtpti"]
-[ext_resource type="PackedScene" uid="uid://cxste7ow8ytfm" path="res://scenes/GUI.tscn" id="3_m4acv"]
+[ext_resource type="Texture2D" uid="uid://d35t5xhdwfpkk" path="res://assets/tilesets/atlas.png" id="1_rpm2q"]
+[ext_resource type="PackedScene" uid="uid://coroaa82j85le" path="res://scenes/player.tscn" id="2_fo654"]
+[ext_resource type="PackedScene" uid="uid://cxste7ow8ytfm" path="res://scenes/GUI.tscn" id="3_bfki0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vknt5"]
-texture = ExtResource("1_v5dlg")
+texture = ExtResource("1_rpm2q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -19,7 +19,7 @@ sources/1 = SubResource("TileSetAtlasSource_vknt5")
 polygon = PackedVector2Array(-3, -7, 3, -7, 3, 8, -3, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w44x7"]
-texture = ExtResource("1_v5dlg")
+texture = ExtResource("1_rpm2q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -47,7 +47,7 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAGAAkAAAAAAAEAAAAHAAkAAAAAAAEAAAAIAAkAAAAAAAEAAAAJAAkAAAAAAAEAAAAKAAkAAAAAAAEAAAANAAUAAAAAAAEAAAAMAAUAAAAAAAEAAAALAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAADAAYAAAAAAAEAAAADAAcAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_4s7vv")
 
-[node name="Player" parent="." instance=ExtResource("2_vtpti")]
+[node name="Player" parent="." instance=ExtResource("2_fo654")]
 position = Vector2(125, 110)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -63,4 +63,4 @@ color = Color(0.568973, 0.568973, 0.568973, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("3_m4acv")]
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_bfki0")]
