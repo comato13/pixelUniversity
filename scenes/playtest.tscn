@@ -15,15 +15,15 @@ texture = ExtResource("1_rpm2q")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_vknt5")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gxpt1"]
-polygon = PackedVector2Array(-3, -7, 3, -7, 3, 8, -3, 8)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j8mi6"]
+polygon = PackedVector2Array(-2.66667, 6.93333, -2.66667, 5.86667, -1.6, 4.8, 1.6, 4.8, 2.66667, 5.86667, 2.66667, 6.93333, 1.6, 8, -1.6, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w44x7"]
 texture = ExtResource("1_rpm2q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
-0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_gxpt1")
+0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_j8mi6")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 5, 3, 5, 3, 8, -3, 8)
 
 [sub_resource type="TileSet" id="TileSet_4s7vv"]
@@ -32,6 +32,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_w44x7")
 
 [node name="Scene" type="Node2D"]
+modulate = Color(0.270222, 0.270222, 0.270222, 1)
 texture_filter = 1
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -53,14 +54,14 @@ position = Vector2(125, 110)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-rotation = 3.94968
-color = Color(0.552956, 0.552956, 0.552956, 1)
+rotation = -2.33351
+color = Color(0.94, 0.772053, 0.3102, 1)
+energy = 3.88
 shadow_enabled = true
-shadow_filter_smooth = 0.6
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.568973, 0.568973, 0.568973, 1)
+shadow_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("3_bfki0")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
