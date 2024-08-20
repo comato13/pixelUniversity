@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_new_game_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/levelOne.tscn")
 	pass # Replace with function body.
 
 
