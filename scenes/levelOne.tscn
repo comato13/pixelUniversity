@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlle6piefh2q" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="5_h8j3y"]
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/mainChar.tscn" id="5_m0yos"]
 [ext_resource type="Texture2D" uid="uid://bn63axk21qi0c" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="6_22wqn"]
-[ext_resource type="Script" path="res://scenes/main_char.gd" id="6_sa4a4"]
+[ext_resource type="Script" path="res://scripts/main_char.gd" id="6_sa4a4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1cex"]
 texture = ExtResource("2_2pkjd")

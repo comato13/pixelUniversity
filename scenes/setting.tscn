@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc03w74gahs0t"]
 
-[ext_resource type="Shader" path="res://scenes/scroll.gdshader" id="1_wepn0"]
+[ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="2_glsmo"]
 [ext_resource type="Texture2D" uid="uid://c72yt1sucxl40" path="res://assets/graphic/openbook.png" id="3_4bxy2"]
 
