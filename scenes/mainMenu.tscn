@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://fy568csmg7xm"]
+[gd_scene load_steps=43 format=3 uid="uid://fy568csmg7xm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jtpdw"]
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="2_xtmba"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c17t6vc0hivvs" path="res://assets/graphic/ezgif-5-a42ef6f1ff.png" id="4_v7rho"]
 [ext_resource type="Texture2D" uid="uid://ceksi6pueo5b3" path="res://assets/graphic/main menu book.png" id="5_pesto"]
 [ext_resource type="Texture2D" uid="uid://badlh2i3ssvek" path="res://assets/graphic/menu logo.png" id="7_1xo06"]
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_damc1"]
 shader = ExtResource("2_xtmba")
@@ -300,32 +301,37 @@ texture = ExtResource("7_1xo06")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -29.43
-offset_top = -91.54
-offset_right = 94.57
-offset_bottom = 70.46
+anchors_preset = -1
+anchor_left = 0.537
+anchor_top = 0.854
+anchor_right = 0.537
+anchor_bottom = 0.854
+offset_left = -49.766
+offset_top = -66.72
+offset_right = 97.234
+offset_bottom = 111.28
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.635, 0.635)
+scale = Vector2(0.66, 0.66)
+theme = ExtResource("7_i63rd")
+theme_override_constants/separation = 9
 
 [node name="New Game" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_i63rd")
 action_mode = 0
 text = "New Game"
 flat = true
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_i63rd")
 text = "Continue"
 flat = true
 
 [node name="Setting" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_i63rd")
 text = "Settings"
 flat = true
 
