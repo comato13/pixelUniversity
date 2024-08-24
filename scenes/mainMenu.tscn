@@ -1,15 +1,46 @@
 [gd_scene load_steps=43 format=3 uid="uid://fy568csmg7xm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jtpdw"]
-[ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="2_xtmba"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="3_kitwn"]
 [ext_resource type="Texture2D" uid="uid://c17t6vc0hivvs" path="res://assets/graphic/ezgif-5-a42ef6f1ff.png" id="4_v7rho"]
 [ext_resource type="Texture2D" uid="uid://ceksi6pueo5b3" path="res://assets/graphic/main menu book.png" id="5_pesto"]
 [ext_resource type="Texture2D" uid="uid://badlh2i3ssvek" path="res://assets/graphic/menu logo.png" id="7_1xo06"]
 [ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
 
+[sub_resource type="Shader" id="Shader_i8fka"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float radius = 9.0;
+
+void vertex() {
+	UV.x += TIME * 0.1;
+	UV.y += TIME * 0.2;
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	col += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	col += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	col += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	col += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	col /= 5.0;
+
+	COLOR = col;
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_damc1"]
-shader = ExtResource("2_xtmba")
+shader = SubResource("Shader_i8fka")
+shader_parameter/radius = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ludw0"]
 atlas = ExtResource("4_v7rho")
