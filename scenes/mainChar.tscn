@@ -383,17 +383,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jfb1"]
-size = Vector2(12.5, 22)
+size = Vector2(16, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(50, 67)
 sprite_frames = SubResource("SpriteFrames_id0um")
 animation = &"adamRightRun"
 autoplay = "adamDownIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(49.75, 72)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_8jfb1")

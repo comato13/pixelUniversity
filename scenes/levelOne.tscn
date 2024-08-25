@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dg5xa3b3yuc4f"]
+[gd_scene load_steps=19 format=4 uid="uid://dg5xa3b3yuc4f"]
 
 [ext_resource type="Texture2D" uid="uid://bmg5wyqvmtrto" path="res://assets/graphic/mint-green-color-solid-background-1920x1080.png" id="1_ogvy7"]
 [ext_resource type="Texture2D" uid="uid://ddfla0s36i2fc" path="res://assets/tiles/SmallCityTilesets 8pxSizePixelart/tilemapResurrectOriginalsize.png" id="2_2pkjd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/mainChar.tscn" id="5_m0yos"]
 [ext_resource type="Texture2D" uid="uid://bn63axk21qi0c" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="6_22wqn"]
 [ext_resource type="Script" path="res://scripts/main_char.gd" id="6_sa4a4"]
+[ext_resource type="PackedScene" uid="uid://dgwj786w1pbov" path="res://scenes/Item.tscn" id="9_e01ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1cex"]
 texture = ExtResource("2_2pkjd")
@@ -5314,8 +5315,11 @@ tile_set = SubResource("TileSet_515u3")
 rendering_quadrant_size = 8
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_m0yos")]
-position = Vector2(5, -3)
+position = Vector2(98, 74)
 script = ExtResource("6_sa4a4")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_go2no")
+
+[node name="Sprite2D" parent="." instance=ExtResource("9_e01ej")]
+position = Vector2(146, 99)
