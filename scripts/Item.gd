@@ -12,9 +12,13 @@ func _ready():
 	# Initialization code
 	match item_type:
 		ItemType.HEART:
-			region_rect = Rect2(80, 0, 16, 16)
+			region_rect = Rect2(80.5, -1, 16, 16)
 		ItemType.WATER_BOTTLE:
 			region_rect = Rect2(80, 96, 16, 16)
+	
+func _physics_process(delta: float) -> void:
+	# z_index is based on y position
+	z_index = position.y + 1
 
 #func pick_up(player_node: Node):
 	#is_picked_up = true
