@@ -1,11 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://fy568csmg7xm"]
+[gd_scene load_steps=45 format=3 uid="uid://fy568csmg7xm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jtpdw"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="3_kitwn"]
 [ext_resource type="Texture2D" uid="uid://c17t6vc0hivvs" path="res://assets/graphic/ezgif-5-a42ef6f1ff.png" id="4_v7rho"]
 [ext_resource type="Texture2D" uid="uid://ceksi6pueo5b3" path="res://assets/graphic/main menu book.png" id="5_pesto"]
 [ext_resource type="Texture2D" uid="uid://badlh2i3ssvek" path="res://assets/graphic/menu logo.png" id="7_1xo06"]
-[ext_resource type="Theme" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
+[ext_resource type="AudioStream" uid="uid://cy5mxqtqp7pl3" path="res://assets/audio/8-bit-retro-game-music-233964.mp3" id="7_mq7v4"]
+[ext_resource type="AudioStream" uid="uid://bxo3fwwxrevoj" path="res://assets/audio/click.wav" id="8_5cbj1"]
 
 [sub_resource type="Shader" id="Shader_i8fka"]
 code = "shader_type canvas_item;
@@ -291,8 +293,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jtpdw")
 
-[node name="Node" type="Node" parent="."]
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 326.0
@@ -365,6 +365,17 @@ layout_mode = 2
 theme = ExtResource("7_i63rd")
 text = "Settings"
 flat = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mq7v4")
+volume_db = -11.995
+pitch_scale = 0.69
+autoplay = true
+playback_type = 1
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5cbj1")
+volume_db = -3.08
 
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
