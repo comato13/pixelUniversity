@@ -6,17 +6,19 @@ var player: Node = null
 
 enum ItemType { HEART, WATER_BOTTLE }
 
+# define item position in the spritesheet
+const itemPositions = {
+	ItemType.HEART: Vector2(80.5, -1),
+	ItemType.WATER_BOTTLE: Vector2(80, 96)
+}
+
 var item_type: ItemType
 
 func _ready():
 	# Initialization code
-	match item_type:
-		ItemType.HEART:
-			region_rect = Rect2(80.5, -1, 16, 16)
-		ItemType.WATER_BOTTLE:
-			region_rect = Rect2(80, 96, 16, 16)
+	region_rect = Rect2(itemPositions[item_type], Vector2(16, 16))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# z_index is based on y position
 	z_index = position.y + 1
 

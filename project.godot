@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 LogoTransition="*res://scenes/logoTransition.tscn"
-Settings="*res://scripts/settings.gd"
 
 [display]
 
