@@ -7,7 +7,9 @@ func _ready():
 
 func change_scene(target: String) -> void:
 	color_rect.visible = true
+	$Swoosh.play()
 	$AnimationPlayer.play('fadeToBlack')
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file(target)
+	$ReverseSwoosh.play()
 	$AnimationPlayer.play('fadeFromBlack')

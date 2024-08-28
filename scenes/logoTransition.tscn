@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckuef16y7tfr4"]
+[gd_scene load_steps=10 format=3 uid="uid://ckuef16y7tfr4"]
 
 [ext_resource type="Shader" path="res://scripts/logoTransition.gdshader" id="1_df1me"]
 [ext_resource type="Texture2D" uid="uid://ci3notvo68asd" path="res://assets/graphic/logo.svg" id="3_qn45m"]
 [ext_resource type="Script" path="res://scripts/logo_transition.gd" id="3_u3kdq"]
+[ext_resource type="AudioStream" uid="uid://bxo3fwwxrevoj" path="res://assets/audio/swoosh.wav" id="4_m22we"]
+[ext_resource type="AudioStream" uid="uid://bt2xsf2g8qumv" path="res://assets/audio/reverseSwoosh.wav" id="5_8oyg8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e8miw"]
 shader = ExtResource("1_df1me")
@@ -62,3 +64,9 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_dp4y1")
 }
+
+[node name="Swoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m22we")
+
+[node name="ReverseSwoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8oyg8")

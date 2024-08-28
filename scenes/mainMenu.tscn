@@ -1,11 +1,17 @@
-[gd_scene load_steps=43 format=3 uid="uid://fy568csmg7xm"]
+[gd_scene load_steps=49 format=3 uid="uid://fy568csmg7xm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jtpdw"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="3_kitwn"]
 [ext_resource type="Texture2D" uid="uid://c17t6vc0hivvs" path="res://assets/graphic/ezgif-5-a42ef6f1ff.png" id="4_v7rho"]
 [ext_resource type="Texture2D" uid="uid://ceksi6pueo5b3" path="res://assets/graphic/main menu book.png" id="5_pesto"]
 [ext_resource type="Texture2D" uid="uid://badlh2i3ssvek" path="res://assets/graphic/menu logo.png" id="7_1xo06"]
-[ext_resource type="Theme" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
+[ext_resource type="AudioStream" uid="uid://cy5mxqtqp7pl3" path="res://assets/audio/8-bit-retro-game-music-233964.mp3" id="7_mq7v4"]
+[ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="8_ufi3m"]
+[ext_resource type="Texture2D" uid="uid://bijngkenvjoa1" path="res://assets/graphic/music.png" id="9_nisl7"]
+[ext_resource type="Texture2D" uid="uid://cyo2xm7htg6xo" path="res://assets/graphic/mutedMusic.png" id="10_okrwa"]
+[ext_resource type="Texture2D" uid="uid://c51hrs71jdeqs" path="res://assets/graphic/sound.png" id="11_pkbmo"]
+[ext_resource type="Texture2D" uid="uid://d1qum0eingfps" path="res://assets/graphic/mutedSound.png" id="12_dmk11"]
 
 [sub_resource type="Shader" id="Shader_i8fka"]
 code = "shader_type canvas_item;
@@ -291,8 +297,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jtpdw")
 
-[node name="Node" type="Node" parent="."]
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 326.0
@@ -365,6 +369,39 @@ layout_mode = 2
 theme = ExtResource("7_i63rd")
 text = "Settings"
 flat = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mq7v4")
+volume_db = -11.995
+pitch_scale = 0.69
+autoplay = true
+playback_type = 1
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ufi3m")
+volume_db = -3.08
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 1.0
+offset_right = 381.0
+offset_bottom = 51.0
+scale = Vector2(0.425, 0.425)
+
+[node name="music" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("9_nisl7")
+texture_pressed = ExtResource("10_okrwa")
+stretch_mode = 0
+
+[node name="sound" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("11_pkbmo")
+texture_pressed = ExtResource("12_dmk11")
+stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
