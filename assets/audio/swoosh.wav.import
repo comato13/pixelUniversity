@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxo3fwwxrevoj"
-path="res://.godot/imported/click.wav-726094e36c7052fadb6392aaf7409595.sample"
+path="res://.godot/imported/swoosh.wav-f1965cef42c3cf734b24307307f51fd3.sample"
 
 [deps]
 
-source_file="res://assets/audio/click.wav"
-dest_files=["res://.godot/imported/click.wav-726094e36c7052fadb6392aaf7409595.sample"]
+source_file="res://assets/audio/swoosh.wav"
+dest_files=["res://.godot/imported/swoosh.wav-f1965cef42c3cf734b24307307f51fd3.sample"]
 
 [params]
 

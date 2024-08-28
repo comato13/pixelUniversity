@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://badlh2i3ssvek" path="res://assets/graphic/menu logo.png" id="7_1xo06"]
 [ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="7_i63rd"]
 [ext_resource type="AudioStream" uid="uid://cy5mxqtqp7pl3" path="res://assets/audio/8-bit-retro-game-music-233964.mp3" id="7_mq7v4"]
-[ext_resource type="AudioStream" uid="uid://bxo3fwwxrevoj" path="res://assets/audio/click.wav" id="8_5cbj1"]
+[ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="8_ufi3m"]
 
 [sub_resource type="Shader" id="Shader_i8fka"]
 code = "shader_type canvas_item;
@@ -374,7 +374,7 @@ autoplay = true
 playback_type = 1
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_5cbj1")
+stream = ExtResource("8_ufi3m")
 volume_db = -3.08
 
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
