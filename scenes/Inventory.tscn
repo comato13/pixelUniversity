@@ -1,78 +1,112 @@
-[gd_scene load_steps=8 format=4 uid="uid://dws4m3g8hmsru"]
+[gd_scene load_steps=10 format=4 uid="uid://dws4m3g8hmsru"]
 
-[ext_resource type="Script" path="res://scripts/Inventory.gd" id="1_b84ob"]
-[ext_resource type="TileSet" uid="uid://dswxsjjx764lw" path="res://assets/UI/UI_tileset.tres" id="2_4ilr6"]
-[ext_resource type="PackedScene" uid="uid://cek0gap3emdsn" path="res://scenes/Item.tscn" id="2_6b3to"]
-[ext_resource type="FontFile" uid="uid://byxog8kjfhuy5" path="res://assets/fonts/8-bit Arcade In.ttf" id="2_a6l0i"]
-[ext_resource type="Texture2D" uid="uid://3ksg05cy11o0" path="res://assets/UI/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Spritesheets/Spritesheet_UI_Flat.png" id="4_ldykv"]
-[ext_resource type="FontFile" uid="uid://wbfvuenx864d" path="res://assets/fonts/m3x6.ttf" id="4_miwn1"]
+[ext_resource type="Script" path="res://scripts/Inventory.gd" id="1_jakqg"]
+[ext_resource type="TileSet" uid="uid://dswxsjjx764lw" path="res://assets/UI/UI_tileset.tres" id="2_1mu1v"]
+[ext_resource type="FontFile" uid="uid://byxog8kjfhuy5" path="res://assets/fonts/8-bit Arcade In.ttf" id="3_xblxa"]
+[ext_resource type="Texture2D" uid="uid://gpbr3aqboyrs" path="res://assets/UI/modernuserinterface-win/16x16/Modern_UI_Style_2.png" id="4_g28nb"]
+[ext_resource type="Texture2D" uid="uid://cdmlq004slny6" path="res://assets/UI/LongButton.png" id="5_ssqvc"]
+[ext_resource type="FontFile" uid="uid://wbfvuenx864d" path="res://assets/fonts/m3x6.ttf" id="6_mtct6"]
+[ext_resource type="Theme" uid="uid://do3okgul4hqxq" path="res://themes/scrollBarTheme.tres" id="7_f0lei"]
+[ext_resource type="PackedScene" uid="uid://cek0gap3emdsn" path="res://scenes/UI_Item.tscn" id="8_ybqb4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1csqm"]
-atlas = ExtResource("4_ldykv")
-region = Rect2(480, 170, 32, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulylt"]
+atlas = ExtResource("4_g28nb")
+region = Rect2(164, 356, 9, 9)
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_b84ob")
+script = ExtResource("1_jakqg")
 
 [node name="Control" type="Control" parent="."]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 99.0
-offset_top = 27.0
-offset_right = 189.0
-offset_bottom = 111.0
+offset_left = 76.0
+offset_top = 26.0
+offset_right = 252.0
+offset_bottom = 157.0
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Control"]
-tile_map_data = PackedByteArray("AAACAA0AAAAWAA4AAAAAAAAAAQAaAAQAAAABAAAAAQAbAAQAAAABAAEAAQAeAAUAAAACAAAAAQAcAAQAAAACAAEAAQAeAAUAAAADAAAAAQAcAAQAAAADAAEAAQAeAAUAAAAEAAAAAQAcAAQAAAAEAAEAAQAeAAUAAAAFAAAAAQAcAAQAAAAFAAEAAQAeAAUAAAAGAAAAAQAeAAQAAAAGAAEAAQAeAAUAAAAHAAAAAQAfAAQAAAAHAAEAAQAfAAUAAAAAAAEAAQAaAAUAAAABAAIAAQAOAAIAAAACAAIAAQAPAAIAAAADAAIAAQAPAAIAAAAEAAIAAQAPAAIAAAAFAAIAAQAPAAIAAAAGAAIAAQATAAIAAAABAAMAAQAOAAYAAAABAAQAAQAOAAYAAAABAAUAAQAOAAYAAAABAAYAAQAOAAYAAAACAAMAAQARAAUAAAACAAQAAQARAAUAAAACAAUAAQARAAUAAAACAAYAAQARAAUAAAADAAMAAQARAAUAAAADAAQAAQARAAUAAAADAAUAAQARAAUAAAADAAYAAQARAAUAAAAEAAMAAQARAAUAAAAEAAQAAQARAAUAAAAEAAUAAQARAAUAAAAEAAYAAQARAAUAAAAFAAMAAQARAAUAAAAFAAQAAQARAAUAAAAFAAUAAQARAAUAAAAFAAYAAQARAAUAAAAGAAMAAQATAAMAAAAGAAQAAQATAAMAAAAGAAUAAQATAAMAAAAGAAYAAQATAAMAAAABAAcAAQAOAAcAAAACAAcAAQASAAcAAAADAAcAAQASAAcAAAAEAAcAAQASAAcAAAAFAAcAAQASAAcAAAAGAAcAAQATAAcAAAA=")
-tile_set = ExtResource("2_4ilr6")
+[node name="UITileMapLayer" type="TileMapLayer" parent="Control"]
+tile_map_data = PackedByteArray("AAABAAIAAQAOAAIAAAACAAIAAQAPAAIAAAADAAIAAQAPAAIAAAAEAAIAAQAPAAIAAAAFAAIAAQAPAAIAAAAGAAIAAQATAAIAAAABAAMAAQAOAAYAAAABAAQAAQAOAAYAAAABAAUAAQAOAAYAAAABAAYAAQAOAAYAAAACAAMAAQARAAUAAAACAAQAAQARAAUAAAACAAUAAQARAAUAAAACAAYAAQARAAUAAAADAAMAAQARAAUAAAADAAQAAQARAAUAAAADAAUAAQARAAUAAAADAAYAAQARAAUAAAAEAAMAAQARAAUAAAAEAAQAAQARAAUAAAAEAAUAAQARAAUAAAAEAAYAAQARAAUAAAAFAAMAAQARAAUAAAAFAAQAAQARAAUAAAAFAAUAAQARAAUAAAAFAAYAAQARAAUAAAAGAAMAAQATAAMAAAAGAAQAAQATAAMAAAAGAAUAAQATAAMAAAAGAAYAAQATAAMAAAABAAcAAQAOAAcAAAACAAcAAQASAAcAAAADAAcAAQASAAcAAAAEAAcAAQASAAcAAAAFAAcAAQASAAcAAAAGAAcAAQATAAcAAAAAAAAAAQAaAAQAAAAAAAEAAQAaAAUAAAABAAAAAQAbAAQAAAABAAEAAQAeAAUAAAACAAAAAQAcAAQAAAACAAEAAQAeAAUAAAADAAAAAQAcAAQAAAADAAEAAQAeAAUAAAAEAAAAAQAcAAQAAAAEAAEAAQAeAAUAAAAFAAAAAQAcAAQAAAAFAAEAAQAeAAUAAAAGAAAAAQAcAAQAAAAGAAEAAQAeAAUAAAAHAAEAAQAeAAUAAAAIAAAAAQAcAAQAAAAIAAEAAQAeAAUAAAAJAAAAAQAeAAQAAAAJAAEAAQAeAAUAAAAKAAAAAQAfAAQAAAAKAAEAAQAfAAUAAAAHAAAAAQAdAAIAAAA=")
+tile_set = ExtResource("2_1mu1v")
 
 [node name="Title" type="RichTextLabel" parent="Control"]
 z_index = 1
 layout_mode = 0
-offset_left = 17.0
+offset_left = 20.0
 offset_top = 8.0
-offset_right = 111.0
+offset_right = 158.0
 offset_bottom = 22.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_a6l0i")
+theme_override_fonts/normal_font = ExtResource("3_xblxa")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "Nothing"
+text = "Untitled Inventory"
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-offset_left = 116.0
-offset_top = 33.0
-offset_right = 155.0
-offset_bottom = 45.0
-texture = SubResource("AtlasTexture_1csqm")
-
-[node name="Button" type="Button" parent="Control"]
+[node name="ExitButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 115.0
-offset_top = 27.0
-offset_right = 158.0
-offset_bottom = 48.0
+offset_left = 160.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 20.0
+action_mode = 0
+icon = SubResource("AtlasTexture_ulylt")
+flat = true
+
+[node name="UseItemTexture" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 32.0
+offset_right = 162.0
+offset_bottom = 44.0
+texture = ExtResource("5_ssqvc")
+
+[node name="UseButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 26.0
+offset_right = 160.0
+offset_bottom = 47.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_miwn1")
+theme_override_fonts/font = ExtResource("6_mtct6")
 theme_override_font_sizes/font_size = 16
 text = "Use Item"
+flat = true
+
+[node name="DropItemTexture" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 49.0
+offset_right = 162.0
+offset_bottom = 61.0
+texture = ExtResource("5_ssqvc")
+
+[node name="DropButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 43.0
+offset_right = 162.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_mtct6")
+theme_override_font_sizes/font_size = 16
+text = "Drop Item"
 flat = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 35.0
-offset_right = 109.0
-offset_bottom = 125.0
+offset_top = 36.0
+offset_right = 108.0
+offset_bottom = 124.0
+theme = ExtResource("7_f0lei")
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_bottom = 2
 
 [node name="GridContainer" type="GridContainer" parent="Control/ScrollContainer/MarginContainer"]
 layout_mode = 2
@@ -80,17 +114,65 @@ theme_override_constants/h_separation = 21
 theme_override_constants/v_separation = 21
 columns = 4
 
-[node name="Control5" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_6b3to")]
+[node name="Control12" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
 layout_mode = 2
 
-[node name="Control" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_6b3to")]
+[node name="Control5" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
 layout_mode = 2
 
-[node name="Control2" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_6b3to")]
+[node name="Control" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
 layout_mode = 2
 
-[node name="Control3" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_6b3to")]
+[node name="Control2" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
 layout_mode = 2
 
-[node name="Control4" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_6b3to")]
+[node name="Control3" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control4" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control6" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control7" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control8" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control9" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control10" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control11" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control13" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control14" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control15" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control16" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control17" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control18" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control19" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control20" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
+layout_mode = 2
+
+[node name="Control21" parent="Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("8_ybqb4")]
 layout_mode = 2

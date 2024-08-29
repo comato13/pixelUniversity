@@ -1,7 +1,8 @@
 extends CharacterBody2D
 @onready var sprite2d = $Sprite2D
 
-var InventoryScene = preload("res://scenes/Inventory.tscn")
+var worldItemScene = preload("res://scenes/worldItem.tscn")
+var inventoryScene = preload("res://scenes/inventory.tscn")
 
 # Settings
 const SPEED = 100.0
@@ -24,44 +25,38 @@ func init_inventory() -> void:
 	print("Initialising player inventory...")
 	
 	# Add the inventory to the scene tree
-	var inventory = InventoryScene.instantiate()
+	var inventory = inventoryScene.instantiate()
 	
 	# Call the setup function to initialize the inventory
-	inventory.setup_inventory("Backpack")
+	inventory.setup_inventory("Backpack Inventory")
 	
+	# Connect the inventory's item_dropped signal to the player
+	inventory.connect("item_dropped", Callable(self, "_on_item_dropped"))
+
 	# Get the level node (assuming the level is second child of root)
 	var root_node = get_tree().root.get_child(1)
 	
 	root_node.add_child(inventory)
 
 	
-
-#func spawn_item(item_type: Item.ItemType, position: Vector2):
-	#print("Spawning item at position: ", position)
-	#
-	## Instance the item scene
-	#var new_item = ItemScene.instantiate()
-	#
-	## Initialize the item with its type and texture
-	#new_item.setup_item(item_type)
-	#
-	## Get the root node (assuming the main scene is the root)
-	#var root_node = get_tree().root.get_child(1)
-	#
-	## Add the item to the root node (main scene)
-	#root_node.add_child(new_item)
-	#
-	## Set the item's position in the global scene
-	#new_item.global_position = position
-
-## Spawn a random item at a given position (Debug)
-#func spawn_random_item(position: Vector2):
-	## Get the random item type from the enum
-	#var random_index = randi() % Item.ItemType.size()
-	#var random_item_type = Item.ItemType.values()[random_index]
-	#
-	## Spawn the item with the random type
-	#spawn_item(random_item_type, position)
+func _on_item_dropped(item_type: UI_Item.ItemType, count: int):
+	var drop_position = position + Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(1,8)
+	print("Spawning item at position: ", drop_position)
+	
+	# Instance the item scene
+	var newWorldItem = worldItemScene.instantiate()
+	
+	# Initialize the item with its type and texture
+	newWorldItem.setup_item(item_type, count)
+	
+	# Get the root node (assuming the main scene is the root)
+	var root_node = get_tree().root.get_child(1)
+	
+	# Add the item to the root node (main scene)
+	root_node.add_child(newWorldItem)
+	
+	# Set the item's position in the global scene
+	newWorldItem.global_position = drop_position
 
 # ----------------------------------------------------------------
 # Godot functions

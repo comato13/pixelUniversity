@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://do3okgul4hqxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekjuw"]
+bg_color = Color(1, 0.827149, 0.462054, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpqse"]
+bg_color = Color(1, 0.880734, 0.639029, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_468p1"]
+bg_color = Color(1, 0.911963, 0.731802, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kygxp"]
+color = Color(0.777927, 0.428184, 0.195459, 1)
+thickness = 4
+vertical = true
+
+[resource]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ekjuw")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_cpqse")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_468p1")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_kygxp")
