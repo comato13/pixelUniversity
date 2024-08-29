@@ -1,23 +1,40 @@
-extends Node
+extends CanvasLayer
 class_name Inventory
 
+# Reference to Item Scene
+var ItemScene = preload("res://scenes/Item.tscn")
+
+# UI Elements
+var control
+var richTextLabel
+var scroll_container
+var grid_container
+
+# Settings
 const SLOT_HEIGHT = 16
 
 # Dictionary to store items and their counts
 var items: Dictionary = {}
 
-# UI Elements
-@onready var scroll_container = $ScrollContainer
-@onready var grid_container = $ScrollContainer/GridContainer
-
 # Initialize the inventory
-func _init():
-	items = {}
-
-# Set the UI elements (can be set directly in the scene or dynamically in code)
-func set_ui(scroll_container_node: ScrollContainer, grid_container_node: GridContainer):
-	scroll_container = scroll_container_node
-	grid_container = grid_container_node
+func setup_inventory(titleStr: String = "Inventory") -> void:
+	print("Setting up inventory with random items...")
+	control = $Control
+	richTextLabel = $Control/RichTextLabel
+	scroll_container = $Control/ScrollContainer
+	grid_container = $Control/ScrollContainer/GridContainer
+	
+	self.visible = false
+	self.richTextLabel.text = "[center]%s[/center]" % titleStr
+	
+	# Initialize the inventory with random counts of each item type
+	for item_type in Item.ItemType.values():
+		# Add a random count for each item type to the inventory
+		var random_count = randi() % 11  # Random count between 0 and 10
+		add_item(item_type, random_count)
+	
+	# Update the UI after initialization
+	update_ui()
 
 #----------------------------------------------------------------
 # Methods for managing items
@@ -30,7 +47,7 @@ func add_item(item_type: Item.ItemType, count: int = 1) -> void:
 	else:
 		items[item_type] = count
 
-	update_ui()
+	#update_ui()
 
 # Remove an item from the inventory
 func remove_item(item_type: Item.ItemType, count: int = 1) -> bool:
@@ -38,7 +55,7 @@ func remove_item(item_type: Item.ItemType, count: int = 1) -> bool:
 		items[item_type] -= count
 		if items[item_type] <= 0:
 			items.erase(item_type)
-		update_ui()
+		#update_ui()
 		return true
 	return false
 
@@ -50,31 +67,55 @@ func get_item_count(item_type: Item.ItemType) -> int:
 # Helper functions for UI integration
 #---------------------------------------------------------------
 
-# Update the UI based on the inventory
+# Handle right-click on an item (e.g., to consume it)
+func _on_item_right_clicked(item_type: Item.ItemType):
+	print("Consume item: ", item_type)
+	consume_item(item_type)
+
+# Handle left-click on an item (e.g., to drop it)
+func _on_item_left_clicked(item_type: Item.ItemType):
+	print("Drop item: ", item_type)
+	drop_item(item_type)
+
+func consume_item(item_type: Item.ItemType):
+	# Logic for consuming the item (e.g., eating a consumable)
+	print("Consuming item: ", item_type)
+	# Implement your consume logic here
+
+func drop_item(item_type: Item.ItemType):
+	# Logic for dropping the item from inventory
+	print("Dropping item: ", item_type)
+	# Implement your drop logic here
+
+# Update the UI based on the inventory by placing item instances within the grid
 func update_ui():
-	# Clear previous items
-	grid_container.clear_children()
-	# Add items to the grid
-	#
-	#for item_type in items.keys():
-		#var item_count = get_item_count(item_type)
-		#var item_slot = create_item_slot(item_type, item_count)
-		#grid_container.add_child(item_slot)
-		#
-	## Adjust the grid container height based on the number of items
-	#var rows = ceil(float(items.size()) / grid_container.columns) + 2
-	#grid_container.rect_min_size.y = rows * SLOT_HEIGHT
-
-## Helper function to create an item slot
-#func create_item_slot(item_type: Item.ItemType, count: int) -> Control:
-	#var slot = TextureButton.new()
-	#slot.texture_normal = get_item_texture(item_type)
-	#slot.text = str(count)  # Display the item count
-	#
-	#return slot
+	# Ensure the grid_container is initialized
+	if grid_container == null:
+		print("Error: GridContainer is not initialized!")
+		return
+	
+	# Clear all existing children from the grid container
+	for n in grid_container.get_children():
+		grid_container.remove_child(n)
+		n.queue_free()
 
 
-func toggle_ui():
-	# Logic to toggle the inventory UI visibility
-	var ui_node = $InventoryUI  # Ensure this path points to your actual inventory UI node
-	ui_node.visible = not ui_node.visible
+	# Iterate over the items dictionary
+	for item_type in items.keys():
+		if (items[item_type] > 0):
+			# Create a new item instance
+			var new_item = ItemScene.instantiate()
+			new_item.setup_item(item_type, items[item_type])
+				
+			# Add the item to the grid container
+			grid_container.add_child(new_item)
+
+func _input(event):
+	#if event.is_action_pressed("pick_up") and held_item == null:
+		#var item = get_closest_item()
+		#if item:
+			#item.pick_up(self)
+			#held_item = item
+
+	if event.is_action_pressed("inventory_toggle"):# and held_item != null:
+		self.visible = not self.visible

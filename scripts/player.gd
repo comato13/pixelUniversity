@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var sprite2d = $Sprite2D
-var ItemScene = preload("res://scenes/Item.tscn")
+
+var InventoryScene = preload("res://scenes/Inventory.tscn")
 
 # Settings
 const SPEED = 100.0
@@ -13,59 +14,62 @@ const DOWN = 3
 
 # Game variables
 var dir = DOWN  
-var inventory: Inventory
+#var inventory
 
 # ----------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------
 
-# Spawn an item of a given type at a given position
-func spawn_item(item_type: Item.ItemType, position: Vector2):
-	print("Spawning item at position: ", position)
+func init_inventory() -> void:
+	print("Initialising player inventory...")
 	
-	# Instance the item scene
-	var new_item = ItemScene.instantiate()
+	# Add the inventory to the scene tree
+	var inventory = InventoryScene.instantiate()
 	
-	# Set the item type
-	new_item.item_type = item_type
+	# Call the setup function to initialize the inventory
+	inventory.setup_inventory("Backpack")
 	
-	# Get the root node (assuming the main scene is the root and one index after logo tranition)
+	# Get the level node (assuming the level is second child of root)
 	var root_node = get_tree().root.get_child(1)
 	
-	# Add the item to the root node (main scene)
-	root_node.add_child(new_item)
-	
-	# Set the item's position in the global scene
-	new_item.global_position = position
+	root_node.add_child(inventory)
 
-# Spawn a random item at a given position (Debug)
-func spawn_random_item(position: Vector2):
-	# Generate a random integer between 0 and the number of enum values - 1
-	var random_index = randi() % Item.ItemType.size()
 	
-	# Get the random item type from the enum
-	var random_item_type = Item.ItemType.values()[random_index]
-	
-	# Spawn the item with the random type
-	spawn_item(random_item_type, position)
 
-# Example function to pick up an item
-func pick_up_item(item_type: Item.ItemType):
-	inventory.add_item(item_type)
+#func spawn_item(item_type: Item.ItemType, position: Vector2):
+	#print("Spawning item at position: ", position)
+	#
+	## Instance the item scene
+	#var new_item = ItemScene.instantiate()
+	#
+	## Initialize the item with its type and texture
+	#new_item.setup_item(item_type)
+	#
+	## Get the root node (assuming the main scene is the root)
+	#var root_node = get_tree().root.get_child(1)
+	#
+	## Add the item to the root node (main scene)
+	#root_node.add_child(new_item)
+	#
+	## Set the item's position in the global scene
+	#new_item.global_position = position
 
-# Example function to drop an item
-func drop_item(item_type: Item.ItemType):
-	if inventory.remove_item(item_type):
-		spawn_item(item_type, position)  # Drop the item in the world
+## Spawn a random item at a given position (Debug)
+#func spawn_random_item(position: Vector2):
+	## Get the random item type from the enum
+	#var random_index = randi() % Item.ItemType.size()
+	#var random_item_type = Item.ItemType.values()[random_index]
+	#
+	## Spawn the item with the random type
+	#spawn_item(random_item_type, position)
 
 # ----------------------------------------------------------------
 # Godot functions
 # ----------------------------------------------------------------
 
 func _ready() -> void:
-	# Add the inventory to the scene tree, but make sure it's not visible
-	inventory = Inventory.new()
-	add_child(inventory)
+	# Initialize the inventory when the scene is ready using deferred initialization
+	call_deferred("init_inventory")
 
 func _physics_process(delta: float) -> void:
 	# Player's z_index is based on y position
@@ -127,19 +131,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	
-func _input(event):
-	#if event.is_action_pressed("pick_up") and held_item == null:
-		#var item = get_closest_item()
-		#if item:
-			#item.pick_up(self)
-			#held_item = item
 
-	if event.is_action_pressed("drop_item"):# and held_item != null:
-		#held_item.drop()
-		print("Drop item action detected")
-		#held_item = null
-		# Spawn a HEART item at position (200, 200)
-		spawn_random_item(position)
 
 #func get_closest_item() -> Item:
 	## Logic to get the closest item to the player

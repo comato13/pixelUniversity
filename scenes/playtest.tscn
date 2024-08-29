@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://c2xxmcovwd14e"]
+[gd_scene load_steps=8 format=4 uid="uid://c2xxmcovwd14e"]
 
-[ext_resource type="Texture2D" uid="uid://d35t5xhdwfpkk" path="res://assets/tilesets/atlas.png" id="1_rpm2q"]
-[ext_resource type="PackedScene" uid="uid://coroaa82j85le" path="res://scenes/player.tscn" id="2_fo654"]
+[ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="2_fo654"]
 [ext_resource type="PackedScene" uid="uid://cxste7ow8ytfm" path="res://scenes/GUI.tscn" id="3_bfki0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vknt5"]
-texture = ExtResource("1_rpm2q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -19,7 +17,6 @@ sources/1 = SubResource("TileSetAtlasSource_vknt5")
 polygon = PackedVector2Array(-2.66667, 6.93333, -2.66667, 5.86667, -1.6, 4.8, 1.6, 4.8, 2.66667, 5.86667, 2.66667, 6.93333, 1.6, 8, -1.6, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w44x7"]
-texture = ExtResource("1_rpm2q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0

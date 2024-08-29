@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://byxog8kjfhuy5"
-path="res://.godot/imported/8-bit Arcade In.ttf-b7d520fc4265fd86c625e02d94a2d6d9.fontdata"
+uid="uid://c288ufo54axfc"
+path="res://.godot/imported/Daydream.ttf-f9dc98bd002fc381bff3c33fca8fee88.fontdata"
 
 [deps]
 
-source_file="res://assets/graphic/8-bit Arcade In.ttf"
-dest_files=["res://.godot/imported/8-bit Arcade In.ttf-b7d520fc4265fd86c625e02d94a2d6d9.fontdata"]
+source_file="res://assets/fonts/Daydream.ttf"
+dest_files=["res://.godot/imported/Daydream.ttf-f9dc98bd002fc381bff3c33fca8fee88.fontdata"]
 
 [params]
 

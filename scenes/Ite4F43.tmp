@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgwj786w1pbov"]
+
+[ext_resource type="Texture2D" uid="uid://c1pvygbnfj8sw" path="res://assets/items/pixel_items_16x16.png" id="1_j51nc"]
+[ext_resource type="Script" path="res://scripts/Item.gd" id="2_gdcds"]
+
+[node name="Button" type="Button"]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+theme_type_variation = &"FlatButton"
+script = ExtResource("2_gdcds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("1_j51nc")
+region_enabled = true
+region_rect = Rect2(80.5, 0, 16, 16)
