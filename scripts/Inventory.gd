@@ -20,9 +20,9 @@ var items: Dictionary = {}
 func setup_inventory(titleStr: String = "Inventory") -> void:
 	print("Setting up inventory with random items...")
 	control = $Control
-	richTextLabel = $Control/RichTextLabel
+	richTextLabel = $Control/Title
 	scroll_container = $Control/ScrollContainer
-	grid_container = $Control/ScrollContainer/GridContainer
+	grid_container = $Control/ScrollContainer/MarginContainer/GridContainer
 	
 	self.visible = false
 	self.richTextLabel.text = "[center]%s[/center]" % titleStr

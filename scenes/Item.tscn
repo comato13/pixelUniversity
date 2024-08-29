@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cek0gap3emdsn"]
+[gd_scene load_steps=6 format=3 uid="uid://cek0gap3emdsn"]
 
 [ext_resource type="Script" path="res://scripts/Item.gd" id="1_vpiqm"]
+[ext_resource type="Theme" uid="uid://do5xpvjh87ye" path="res://themes/buttonTheme.tres" id="2_4oon3"]
+[ext_resource type="Texture2D" uid="uid://cmt0d4mee6y2d" path="res://assets/UI/ItemFrame.png" id="2_prry4"]
 [ext_resource type="Texture2D" uid="uid://c1pvygbnfj8sw" path="res://assets/items/pixel_items_16x16.png" id="2_w0s46"]
 [ext_resource type="FontFile" uid="uid://cvb2h8roaxykm" path="res://assets/fonts/reppixel.ttf" id="3_jp6li"]
 
@@ -18,24 +20,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vpiqm")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-flat = true
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_prry4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Button"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
 texture = ExtResource("2_w0s46")
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Button"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 16.0
 offset_bottom = 20.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_jp6li")
 theme_override_font_sizes/normal_font_size = 5
 text = "1"
 scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme = ExtResource("2_4oon3")
+flat = true

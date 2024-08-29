@@ -36,8 +36,8 @@ var is_dropped: bool = false  # This flag can be used to differentiate behavior
 # Custom initializer function
 func setup_item(item_type: ItemType, count: int = 1) -> void:
 	self.item_type = item_type
-	$Button/RichTextLabel.text = str(count)
-	$Button/Sprite2D.region_rect = Rect2(itemPositions[item_type], Vector2(ITEM_SPRITE_SIZE, ITEM_SPRITE_SIZE))
+	$RichTextLabel.text = str(count)
+	$Sprite2D.region_rect = Rect2(itemPositions[item_type], Vector2(ITEM_SPRITE_SIZE, ITEM_SPRITE_SIZE))
 
 func _ready():
 	# Connect signals for right-click and left-click
