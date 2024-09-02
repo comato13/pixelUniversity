@@ -15,7 +15,7 @@ const DOWN = 3
 
 # Game variables
 var dir = DOWN  
-#var inventory
+var inventory
 
 # ----------------------------------------------------------------
 # Helper functions
@@ -25,7 +25,7 @@ func init_inventory() -> void:
 	print("Initialising player inventory...")
 	
 	# Add the inventory to the scene tree
-	var inventory = inventoryScene.instantiate()
+	inventory = inventoryScene.instantiate()
 	
 	# Call the setup function to initialize the inventory
 	inventory.setup_inventory("Backpack Inventory")
@@ -39,7 +39,7 @@ func init_inventory() -> void:
 	root_node.add_child(inventory)
 
 	
-func _on_item_dropped(item_type: UI_Item.ItemType, count: int):
+func _on_item_dropped(_itemData: Global.ItemData, count: int):
 	var drop_position = position + Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(1,8)
 	print("Spawning item at position: ", drop_position)
 	
@@ -47,7 +47,7 @@ func _on_item_dropped(item_type: UI_Item.ItemType, count: int):
 	var newWorldItem = worldItemScene.instantiate()
 	
 	# Initialize the item with its type and texture
-	newWorldItem.setup_item(item_type, count)
+	newWorldItem.setup_item(_itemData, count)
 	
 	# Get the root node (assuming the main scene is the root)
 	var root_node = get_tree().root.get_child(1)
@@ -55,7 +55,7 @@ func _on_item_dropped(item_type: UI_Item.ItemType, count: int):
 	# Add the item to the root node (main scene)
 	root_node.add_child(newWorldItem)
 	
-	# Set the item's position in the global scene
+	# Set the item's position in the Global scene
 	newWorldItem.global_position = drop_position
 
 # ----------------------------------------------------------------
@@ -125,10 +125,29 @@ func _physics_process(delta: float) -> void:
 	# Apply velocity to the character with the move_and_slide function
 	move_and_slide()
 
-	
 
+func _input(event):
+	if event.is_action_pressed("interact"):
+		# Find closest item in the world
+		var closest_item = null
+		var closest_distance = 1000000
+		for child in get_tree().root.get_child(1).get_children():
+			if child is WorldItem:
+				var distance = position.distance_to(child.global_position)
+				if distance < closest_distance:
+					closest_item = child
+					closest_distance = distance
+		
+		if closest_item:
+			# Get the item type and count
+			var itemData = closest_item.itemData
+			var count = closest_item.count
+			
+			# Remove the item from the world
+			closest_item.handle_item_pickup()
+			
+			# Add the item to the inventory
+			inventory.add_item(itemData, count)
 
-#func get_closest_item() -> Item:
-	## Logic to get the closest item to the player
-	## For simplicity, you might use a signal or area detection
-	#return null
+			print("Picked up item: ", itemData.name)
+			print("Item count: ", count)

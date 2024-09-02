@@ -5,7 +5,7 @@ class_name Inventory
 var ItemScene = preload("res://scenes/UI_Item.tscn")
 
 # Signals
-signal item_dropped(item_type: UI_Item.ItemType, count: int)
+signal item_dropped(_itemData: Global.ItemData, count: int)
 
 # UI Elements
 var control
@@ -13,11 +13,8 @@ var richTextLabel
 var scroll_container
 var grid_container
 
-# Settings
-const SLOT_HEIGHT = 16
-
 # Dictionary to store items and their counts
-var items: Dictionary = {}
+var itemCounts: Dictionary = {}
 
 # Initialize the inventory
 func setup_inventory(titleStr: String = "Inventory") -> void:
@@ -40,10 +37,10 @@ func setup_inventory(titleStr: String = "Inventory") -> void:
 	self.richTextLabel.text = "[center]%s[/center]" % titleStr
 	
 	# Initialize the inventory with random counts of each item type
-	for item_type in UI_Item.ItemType.values():
+	for itemData in Global.items.values():
 		# Add a random count for each item type to the inventory
 		var random_count = randi() % 11  # Random count between 0 and 10
-		add_item(item_type, random_count)
+		add_item(itemData, random_count)
 	
 	# Update the UI after initialization
 	update_ui()
@@ -53,27 +50,27 @@ func setup_inventory(titleStr: String = "Inventory") -> void:
 #----------------------------------------------------------------
 
 # Add an item to the inventory
-func add_item(item_type: UI_Item.ItemType, count: int = 1) -> void:
-	if items.has(item_type):
-		items[item_type] += count
+func add_item(itemData: Global.ItemData, count: int = 1) -> void:
+	if itemCounts.has(itemData.name):
+		itemCounts[itemData.name] += count
 	else:
-		items[item_type] = count
+		itemCounts[itemData.name] = count
 
-	#update_ui()
+	update_ui()
 
 # Remove an item from the inventory
-func remove_item(item_type: UI_Item.ItemType, count: int = 1) -> bool:
-	if items.has(item_type):
-		items[item_type] -= count
-		if items[item_type] <= 0:
-			items.erase(item_type)
+func remove_item(itemData: Global.ItemData, count: int = 1) -> bool:
+	if itemCounts.has(itemData.name):
+		itemCounts[itemData.name] -= count
+		if itemCounts[itemData.name] <= 0:
+			itemCounts.erase(itemData.name)
 		
 		update_ui()
 
-		if items.has(item_type):
+		if itemCounts.has(itemData.name):
 			# Set focus to back the same item after removing it (if it still exists)
 			for child in grid_container.get_children():
-				if child.item_type == item_type:
+				if child.itemData.name == itemData.name:
 					child.get_node("Button").grab_focus()
 					break
 
@@ -81,8 +78,8 @@ func remove_item(item_type: UI_Item.ItemType, count: int = 1) -> bool:
 	return false
 
 # Get the count of an item
-func get_item_count(item_type: UI_Item.ItemType) -> int:
-	return items.get(item_type, 0)
+func get_item_count(itemData: Global.ItemData) -> int:
+	return itemCounts.get(itemData.name, 0)
 
 #---------------------------------------------------------------
 # Helper functions for UI integration
@@ -102,15 +99,14 @@ func update_ui():
 
 
 	# Iterate over the items dictionary
-	for i in range(10):
-		for item_type in items.keys():
-			if (items[item_type] > 0):
-				# Create a new item instance
-				var new_item = ItemScene.instantiate()
-				new_item.setup_item(item_type, items[item_type])
+	for itemName in itemCounts.keys():
+		if (itemCounts[itemName] > 0):
+			# Create a new item instance
+			var new_item = ItemScene.instantiate()
+			new_item.setup_item(Global.items[itemName], itemCounts[itemName])
 					
-				# Add the item to the grid container
-				grid_container.add_child(new_item)
+			# Add the item to the grid container
+			grid_container.add_child(new_item)
 
 func _input(event):
 	if event.is_action_pressed("inventory_toggle"):# and held_item != null:
@@ -128,13 +124,14 @@ func _on_drop_item_pressed():
 		var button = child.get_node("Button")
 		if button and button.has_focus():
 			# Get the item type and count
-			var item_type = child.item_type
-			var count = items[item_type] # Assuming the item exists in the inventory
+			var itemData = child.itemData
+			var itemName = itemData["name"]
+			var count = itemCounts[itemName] # Assuming the item exists in the inventory
 			
 			# Remove the item from the inventory
-			if remove_item(item_type, count):
+			if remove_item(itemData, count):
 				# Emit a signal to drop the item in the world
-				emit_signal("item_dropped", item_type, count)
+				emit_signal("item_dropped", itemData, count)
 				break
 
 func _on_exit_pressed():
