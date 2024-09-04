@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=10 format=3 uid="uid://dc03w74gahs0t"]
 
+[ext_resource type="Script" path="res://scenes/setting.gd" id="1_tpjvd"]
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="2_glsmo"]
 [ext_resource type="Texture2D" uid="uid://c72yt1sucxl40" path="res://assets/graphic/openbook.png" id="3_4bxy2"]
@@ -9,11 +10,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_baxpw"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oggak"]
 texture = ExtResource("5_7jxpm")
+axis_stretch_horizontal = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spmbl"]
-resource_local_to_scene = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpf5"]
 texture = ExtResource("5_7jxpm")
 
 [node name="Setting" type="Control"]
@@ -23,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tpjvd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -53,26 +55,15 @@ texture = ExtResource("3_4bxy2")
 layout_mode = 0
 offset_left = 86.0
 offset_top = 33.0
-offset_right = 207.0
-offset_bottom = 96.0
+offset_right = 413.0
+offset_bottom = 196.0
 scale = Vector2(0.0673636, 0.0673636)
+theme_override_constants/center_grabber = 0
 theme_override_icons/grabber = ExtResource("4_m8ssd")
-theme_override_styles/slider = SubResource("StyleBoxTexture_baxpw")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_spmbl")
-step = 20.0
-value = 20.0
+theme_override_styles/slider = SubResource("StyleBoxTexture_oggak")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_rgpf5")
+min_value = -80.0
+max_value = 0.0
 rounded = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
-layout_mode = 2
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
