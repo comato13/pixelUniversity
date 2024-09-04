@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=9 format=3 uid="uid://dc03w74gahs0t"]
 
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="2_glsmo"]
 [ext_resource type="Texture2D" uid="uid://c72yt1sucxl40" path="res://assets/graphic/openbook.png" id="3_4bxy2"]
+[ext_resource type="Texture2D" uid="uid://cec3sh0ucyiqc" path="res://assets/UI/head.png" id="4_m8ssd"]
+[ext_resource type="Texture2D" uid="uid://c3kpmse8m62lw" path="res://assets/UI/empty.png" id="5_7jxpm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_baxpw"]
+texture = ExtResource("5_7jxpm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spmbl"]
+resource_local_to_scene = true
+texture = ExtResource("5_7jxpm")
 
 [node name="Setting" type="Control"]
 layout_mode = 3
@@ -39,3 +48,31 @@ flip_h = true
 position = Vector2(163, 89)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_4bxy2")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 33.0
+offset_right = 207.0
+offset_bottom = 96.0
+scale = Vector2(0.0673636, 0.0673636)
+theme_override_icons/grabber = ExtResource("4_m8ssd")
+theme_override_styles/slider = SubResource("StyleBoxTexture_baxpw")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_spmbl")
+step = 20.0
+value = 20.0
+rounded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2

@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 				sprite2d.animation = "adamDownRun"
 
 	# Apply acceleration for a smoother start and deceleration for a smoother stop
-	velocity = velocity.lerp(motion, 16.0 * delta)
+	velocity = velocity.lerp(motion, 4.0 * delta)
 
 	# Apply velocity to the character with the move_and_slide function
 	move_and_slide()

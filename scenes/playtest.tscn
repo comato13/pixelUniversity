@@ -49,6 +49,9 @@ tile_set = SubResource("TileSet_4s7vv")
 position = Vector2(125, 110)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -2.33351
