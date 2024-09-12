@@ -13,3 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_h_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+
+
+func _on_texture_button_pressed() -> void:
+	$ClickSFX.play()
+	LogoTransition.change_scene("res://scenes/mainMenu.tscn")

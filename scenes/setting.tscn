@@ -1,21 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=15 format=3 uid="uid://dc03w74gahs0t"]
 
-[ext_resource type="Script" path="res://scenes/setting.gd" id="1_tpjvd"]
+[ext_resource type="Script" path="res://scripts/setting.gd" id="1_tpjvd"]
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
 [ext_resource type="Texture2D" uid="uid://d24oc5ucfcuht" path="res://assets/graphic/Sprite-0001.png" id="2_glsmo"]
 [ext_resource type="Texture2D" uid="uid://c72yt1sucxl40" path="res://assets/graphic/openbook.png" id="3_4bxy2"]
-[ext_resource type="Texture2D" uid="uid://cec3sh0ucyiqc" path="res://assets/UI/head.png" id="4_m8ssd"]
-[ext_resource type="Texture2D" uid="uid://c3kpmse8m62lw" path="res://assets/UI/empty.png" id="5_7jxpm"]
+[ext_resource type="AudioStream" uid="uid://cy5mxqtqp7pl3" path="res://assets/audio/8-bit-retro-game-music-233964.mp3" id="5_c38bt"]
+[ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="6_rstyl"]
+[ext_resource type="Texture2D" uid="uid://c51hrs71jdeqs" path="res://assets/graphic/sound.png" id="7_4s1pd"]
+[ext_resource type="Script" path="res://scripts/volume_slider.gd" id="8_ojnie"]
+[ext_resource type="Texture2D" uid="uid://bijngkenvjoa1" path="res://assets/graphic/music.png" id="9_qu1b3"]
+[ext_resource type="Texture2D" uid="uid://ngkp1gkc6lqm" path="res://assets/graphic/audioText.png" id="10_1r4vy"]
+[ext_resource type="Texture2D" uid="uid://k5ex4b3taaon" path="res://assets/graphic/videoText.png" id="11_idp1c"]
+[ext_resource type="Texture2D" uid="uid://cj5if685yfxmy" path="res://assets/graphic/exitButton.png" id="12_hnjyl"]
+[ext_resource type="Texture2D" uid="uid://ci5lccil82536" path="res://assets/graphic/exitButtonClicked.png" id="13_100v0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oggak"]
-texture = ExtResource("5_7jxpm")
-axis_stretch_horizontal = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpf5"]
-texture = ExtResource("5_7jxpm")
 
 [node name="Setting" type="Control"]
 layout_mode = 3
@@ -51,19 +51,74 @@ position = Vector2(163, 89)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_4bxy2")
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c38bt")
+volume_db = -11.995
+pitch_scale = 0.69
+autoplay = true
+bus = &"Music"
+playback_type = 1
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rstyl")
+volume_db = -3.08
+bus = &"Sfx"
+
+[node name="Sound" type="Sprite2D" parent="."]
+position = Vector2(88, 92)
+scale = Vector2(0.554348, 0.554348)
+texture = ExtResource("7_4s1pd")
+
+[node name="Music" type="Sprite2D" parent="."]
+position = Vector2(87, 67)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("9_qu1b3")
+
+[node name="AudioText" type="Sprite2D" parent="."]
+position = Vector2(109, 26)
+scale = Vector2(0.189226, 0.189226)
+texture = ExtResource("10_1r4vy")
+
+[node name="VideoText" type="Sprite2D" parent="."]
+position = Vector2(219, 26)
+scale = Vector2(0.198732, 0.198732)
+texture = ExtResource("11_idp1c")
+
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 33.0
-offset_right = 413.0
-offset_bottom = 196.0
-scale = Vector2(0.0673636, 0.0673636)
-theme_override_constants/center_grabber = 0
-theme_override_icons/grabber = ExtResource("4_m8ssd")
-theme_override_styles/slider = SubResource("StyleBoxTexture_oggak")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_rgpf5")
+offset_left = 271.0
+offset_top = 9.0
+offset_right = 283.0
+offset_bottom = 22.0
+texture_normal = ExtResource("12_hnjyl")
+texture_pressed = ExtResource("13_100v0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MusicSlider" type="HSlider" parent="."]
+modulate = Color(0.337255, 0.34902, 0.447059, 1)
+layout_mode = 2
+offset_left = 107.0
+offset_top = 64.0
+offset_right = 182.0
+offset_bottom = 80.0
+scale = Vector2(0.285, 0.285)
 min_value = -80.0
 max_value = 0.0
-rounded = true
+script = ExtResource("8_ojnie")
+bus_name = "Music"
 
-[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[node name="SoundSlider" type="HSlider" parent="."]
+modulate = Color(0.337255, 0.34902, 0.447059, 1)
+layout_mode = 0
+offset_left = 107.0
+offset_top = 89.0
+offset_right = 182.0
+offset_bottom = 105.0
+scale = Vector2(0.285, 0.285)
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("8_ojnie")
+bus_name = "Sfx"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
