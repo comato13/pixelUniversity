@@ -13,3 +13,5 @@ func change_scene(target: String) -> void:
 	get_tree().change_scene_to_file(target)
 	$ReverseSwoosh.play()
 	$AnimationPlayer.play('fadeFromBlack')
+	await $AnimationPlayer.animation_finished
+	color_rect.visible = false
