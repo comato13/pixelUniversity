@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://7ymy2u6jffbf" path="res://assets/tiles/concrete.png" id="3_yse3t"]
 [ext_resource type="Texture2D" uid="uid://bca1r4nhskp3i" path="res://assets/tiles/Grass.png" id="4_0vmlh"]
 [ext_resource type="Texture2D" uid="uid://dlle6piefh2q" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="5_h8j3y"]
-[ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="5_m0yos"]
 [ext_resource type="Texture2D" uid="uid://bn63axk21qi0c" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="6_22wqn"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="6_sa4a4"]
+[ext_resource type="PackedScene" uid="uid://dc03w74gahs0t" path="res://scenes/setting.tscn" id="7_7dshs"]
+[ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="8_qmydg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1cex"]
 texture = ExtResource("2_2pkjd")
@@ -5305,12 +5305,6 @@ rendering_quadrant_size = 8
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_go2no")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_m0yos")]
-position = Vector2(98, 74)
-script = ExtResource("6_sa4a4")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -2.33351
 color = Color(0.975473, 0.836279, 0.583587, 1)
@@ -5320,3 +5314,16 @@ shadow_filter = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.41392, 0.488098, 0.521943, 1)
+
+[node name="Door" parent="." instance=ExtResource("8_qmydg")]
+position = Vector2(211, 64)
+target_position = Vector2(211, 130)
+
+[node name="Door2" parent="." instance=ExtResource("8_qmydg")]
+position = Vector2(211, 130)
+target_position = Vector2(211, 64)
+
+[node name="Door3" parent="." instance=ExtResource("8_qmydg")]
+position = Vector2(40, 48)
+target_scene = ExtResource("7_7dshs")
+target_position = Vector2(69, 0)

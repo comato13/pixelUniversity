@@ -6,6 +6,7 @@ var inventoryScene = preload("res://scenes/inventory.tscn")
 
 # Settings
 const SPEED = 100.0
+# const INTERACT_RADIUS = 20.0
 
 # Constants
 const LEFT = 0
@@ -14,8 +15,13 @@ const UP = 2
 const DOWN = 3
 
 # Game variables
-var dir = DOWN  
+var dir = DOWN
+
+# Players inventory
 var inventory
+# Array to store interactable objects in range
+var interactables_in_range: Array = []
+
 
 # ----------------------------------------------------------------
 # Helper functions
@@ -65,6 +71,10 @@ func _on_item_dropped(_itemData: Global.ItemData, count: int):
 func _ready() -> void:
 	# Initialize the inventory when the scene is ready using deferred initialization
 	call_deferred("init_inventory")
+	
+	# Connect to interactable area
+	$Area2D.connect("area_entered", Callable(self, "_on_area_entered"))
+	$Area2D.connect("area_exited", Callable(self, "_on_area_exited"))
 
 func _physics_process(delta: float) -> void:
 	# Player's z_index is based on y position
@@ -125,29 +135,67 @@ func _physics_process(delta: float) -> void:
 	# Apply velocity to the character with the move_and_slide function
 	move_and_slide()
 
+# ----------------------------------------------------------------
+# Interaction logic
+# ----------------------------------------------------------------
+
+# When the player enters the range of an interactable object
+func _on_area_entered(area):
+	if area is Interactable:
+		interactables_in_range.append(area)
+
+# When the player exits the range of an interactable object
+func _on_area_exited(area):
+	if area is Interactable:
+		interactables_in_range.erase(area)
+
+# Process interaction when the player presses 'E'
+#func _process(delta):
+	#if Input.is_action_just_pressed("ui_accept") and interactables_in_range.size() > 0:
+		## Optionally, you could sort by distance or choose the first in range
+		#interactables_in_range[0].interact()
+
+# Helper function to find the closest interactable
+func get_closest_interactable() -> Interactable:
+	var closest = null
+	var min_dist = INF # INTERACT_RADIUS
+	
+	for interactable in interactables_in_range:
+		var dist = position.distance_to(interactable.position)
+		if dist < min_dist:
+			min_dist = dist
+			closest = interactable
+	
+	return closest
 
 func _input(event):
-	if event.is_action_pressed("interact"):
-		# Find closest item in the world
-		var closest_item = null
-		var closest_distance = 1000000
-		for child in get_tree().root.get_child(1).get_children():
-			if child is WorldItem:
-				var distance = position.distance_to(child.global_position)
-				if distance < closest_distance:
-					closest_item = child
-					closest_distance = distance
+	if event.is_action_pressed("interact"):# && interactables_in_range.size() > 0:
+		# Find the closest interactable if multiple are in range
+		var closest_interactable = get_closest_interactable()
+		if closest_interactable:
+			print("Interacting with: ", closest_interactable)
+			closest_interactable.interact()			
 		
-		if closest_item:
-			# Get the item type and count
-			var itemData = closest_item.itemData
-			var count = closest_item.count
+		# # Find closest item in the world
+		# var closest_item = null
+		# var closest_distance = INTERACT_RADIUS
+		# for child in get_tree().root.get_child(1).get_children():
+		# 	if child is WorldItem:
+		# 		var distance = position.distance_to(child.global_position)
+		# 		if distance < closest_distance:
+		# 			closest_item = child
+		# 			closest_distance = distance
+		
+		# if closest_item:
+		# 	# Get the item type and count
+		# 	var itemData = closest_item.itemData
+		# 	var count = closest_item.count
 			
-			# Remove the item from the world
-			closest_item.handle_item_pickup()
+		# 	# Remove the item from the world
+		# 	closest_item.handle_item_pickup()
 			
-			# Add the item to the inventory
-			inventory.add_item(itemData, count)
+		# 	# Add the item to the inventory
+		# 	inventory.add_item(itemData, count)
 
-			print("Picked up item: ", itemData.name)
-			print("Item count: ", count)
+		# 	print("Picked up item: ", itemData.name)
+		# 	print("Item count: ", count)

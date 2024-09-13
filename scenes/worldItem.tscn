@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://cvb2h8roaxykm" path="res://assets/fonts/reppixel.ttf" id="2_02c85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykms3"]
-size = Vector2(16, 16)
 
 [node name="Area2D" type="Area2D"]
 texture_filter = 1

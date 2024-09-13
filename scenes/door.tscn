@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bts25ux4ijpq"]
+
+[ext_resource type="Script" path="res://scripts/Door.gd" id="1_2i3io"]
+[ext_resource type="Texture2D" uid="uid://dlle6piefh2q" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_62ohr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mt7"]
+size = Vector2(49, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5t5m"]
+atlas = ExtResource("1_62ohr")
+region = Rect2(13, 423, 38, 25)
+
+[node name="Door" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_2i3io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_x4mt7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_x5t5m")

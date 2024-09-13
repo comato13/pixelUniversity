@@ -1,9 +1,12 @@
 extends Control
 
+# Load the scenes
+var levelOne = preload("res://scenes/levelOne.tscn")
+var setting_scene = preload("res://scenes/setting.tscn")
+
 func _on_new_game_pressed():
-	#get_tree().change_scene_to_file("res://scenes/levelOne.tscn")
 	$ClickSFX.play()
-	LogoTransition.change_scene("res://scenes/levelOne.tscn")
+	LogoTransition.change_scene(levelOne, true)
 
 
 func _on_continue_pressed() -> void:
@@ -12,7 +15,7 @@ func _on_continue_pressed() -> void:
 
 func _on_setting_pressed() -> void:
 	$ClickSFX.play()
-	LogoTransition.change_scene("res://scenes/setting.tscn")
+	LogoTransition.change_scene(setting_scene, false)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

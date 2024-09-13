@@ -1,4 +1,4 @@
-extends Area2D
+extends Interactable
 class_name WorldItem
 
 # Load Item data from global script
@@ -22,14 +22,18 @@ func _ready():
 	# Ensure the CollisionShape2D is enabled
 	$CollisionShape2D.disabled = false
 
+# Override the interact method from the Interactable class
+func interact() -> void:
+	handle_item_pickup()
+
 # Custom logic to handle item pickup
 func handle_item_pickup():
-	# Example logic to pick up the item
+	print("Picking up item: ", itemData.name)
+	# Add item to the player's inventory here
+	# Notify the player or inventory system that the item was picked up
 	queue_free()  # This would remove the item from the world
-	# You can also notify the player or inventory system here
 
-
-# Handle physics process
+# Handle physics process for z-index sorting
 func _physics_process(_delta: float) -> void:
 	# z_index is based on y position
 	z_index = position.y + 1
