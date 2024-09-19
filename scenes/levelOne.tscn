@@ -1,12 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dg5xa3b3yuc4f"]
+[gd_scene load_steps=15 format=4 uid="uid://dg5xa3b3yuc4f"]
 
 [ext_resource type="Texture2D" uid="uid://ddfla0s36i2fc" path="res://assets/tiles/SmallCityTilesets 8pxSizePixelart/tilemapResurrectOriginalsize.png" id="2_2pkjd"]
 [ext_resource type="Texture2D" uid="uid://7ymy2u6jffbf" path="res://assets/tiles/concrete.png" id="3_yse3t"]
 [ext_resource type="Texture2D" uid="uid://bca1r4nhskp3i" path="res://assets/tiles/Grass.png" id="4_0vmlh"]
 [ext_resource type="Texture2D" uid="uid://dlle6piefh2q" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="5_h8j3y"]
-[ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="5_m0yos"]
 [ext_resource type="Texture2D" uid="uid://bn63axk21qi0c" path="res://assets/tiles/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="6_22wqn"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="6_sa4a4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oupub"]
 texture = ExtResource("2_2pkjd")
@@ -5306,12 +5304,6 @@ rendering_quadrant_size = 8
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(-8, 71)
 tile_set = SubResource("TileSet_go2no")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_m0yos")]
-position = Vector2(90, 145)
-script = ExtResource("6_sa4a4")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(-8, 71)

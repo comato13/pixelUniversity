@@ -1,10 +1,6 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dswxsjjx764lw"]
-
-[ext_resource type="Texture2D" uid="uid://gpbr3aqboyrs" path="res://assets/UI/modernuserinterface-win/16x16/Modern_UI_Style_2.png" id="1_y7jtb"]
-[ext_resource type="Texture2D" uid="uid://3ksg05cy11o0" path="res://assets/UI/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Spritesheets/Spritesheet_UI_Flat.png" id="2_6sbiu"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dswxsjjx764lw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3666s"]
-texture = ExtResource("1_y7jtb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -991,7 +987,6 @@ texture = ExtResource("1_y7jtb")
 38:33/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jge17"]
-texture = ExtResource("2_6sbiu")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0

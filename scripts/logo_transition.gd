@@ -45,9 +45,9 @@ func change_scene(target_scene: PackedScene, move_player: bool = true, player_po
 
 
 func move_player_to_new_scene(current_scene, new_scene, player_position):
-	if current_scene.has_node("Player"):
+	if current_scene.has_node("player"):
 		# If the player exists in the current scene, move it to the new scene
-		var player = current_scene.get_node("Player")
+		var player = current_scene.get_node("player")
 		
 		# Remove the player from the current scene (but don't free it)
 		current_scene.remove_child(player)
