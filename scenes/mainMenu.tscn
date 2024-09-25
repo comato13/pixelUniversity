@@ -343,14 +343,14 @@ anchor_top = 0.854
 anchor_right = 0.537
 anchor_bottom = 0.854
 offset_left = -49.766
-offset_top = -66.72
-offset_right = 97.234
-offset_bottom = 111.28
+offset_top = -75.72
+offset_right = 99.234
+offset_bottom = 63.28
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.66, 0.66)
 theme = ExtResource("7_i63rd")
-theme_override_constants/separation = 9
+theme_override_constants/separation = 15
 
 [node name="New Game" type="Button" parent="VBoxContainer"]
 layout_mode = 2

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2xxmcovwd14e"]
+[gd_scene load_steps=4 format=3 uid="uid://c2xxmcovwd14e"]
 
 [ext_resource type="PackedScene" uid="uid://b1x5qldrw4dso" path="res://scenes/worldItem.tscn" id="3_35v4y"]
-[ext_resource type="PackedScene" uid="uid://cxste7ow8ytfm" path="res://scenes/GUI.tscn" id="3_bfki0"]
+[ext_resource type="PackedScene" uid="uid://byy2psyi2kwfp" path="res://scenes/GUI_FPS.tscn" id="3_bfki0"]
+[ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="3_u6f30"]
 
 [node name="Scene" type="Node2D"]
 modulate = Color(0.270222, 0.270222, 0.270222, 1)
@@ -14,12 +15,16 @@ energy = 3.88
 shadow_enabled = true
 shadow_filter = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource("3_bfki0")]
-metadata/_edit_use_anchors_ = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Area2D" parent="." instance=ExtResource("3_35v4y")]
 position = Vector2(86, 110)
+
+[node name="player" parent="." instance=ExtResource("3_u6f30")]
+position = Vector2(50, 86)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPSCounter" parent="CanvasLayer" instance=ExtResource("3_bfki0")]
+offset_right = -320.0
+offset_bottom = -180.0

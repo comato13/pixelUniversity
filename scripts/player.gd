@@ -2,47 +2,50 @@ extends CharacterBody2D
 @onready var sprite2d = $Sprite2D
 
 var worldItemScene = preload("res://scenes/worldItem.tscn")
-var inventoryScene = preload("res://scenes/inventory.tscn")
+var GUI_managerScene = preload("res://scenes/GUI_manager.tscn")
+var INV_managerScene = preload("res://scenes/INV_manager.tscn")
 
-# Settings
+# --------------------- Settings ----------------------
 const SPEED = 100.0
-# const INTERACT_RADIUS = 20.0
 
-# Constants
+# --------------------- Constants ---------------------
 const LEFT = 0
 const RIGHT = 1
 const UP = 2
 const DOWN = 3
 
-# Game variables
+# --------------------- Variables ---------------------
 var dir = DOWN
 
-# Players inventory
-var inventory
 # Array to store interactable objects in range
 var interactables_in_range: Array = []
-
+# Gui manager
+var GUI_manager
+# Inventory manager
+var INV_manager
+var inventory
 
 # ----------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------
 
+func init_managers():
+	# Initialize the GUI and Inventory managers
+	GUI_manager = GUI_managerScene.instantiate()
+	INV_manager = INV_managerScene.instantiate()
+	
+	# Get the global node (assuming second child of root)
+	var root_node = get_tree().root.get_child(1)
+
+	root_node.add_child(INV_manager)
+	root_node.add_child(GUI_manager)
+
 func init_inventory() -> void:
-	print("Initialising player inventory...")
-	
-	# Add the inventory to the scene tree
-	inventory = inventoryScene.instantiate()
-	
-	# Call the setup function to initialize the inventory
-	inventory.setup_inventory("Backpack Inventory")
+	# Create a new inventory instance
+	inventory = INV_manager.new_inventory("Backpack Inventory")
 	
 	# Connect the inventory's item_dropped signal to the player
 	inventory.connect("item_dropped", Callable(self, "_on_item_dropped"))
-
-	# Get the level node (assuming the level is second child of root)
-	var root_node = get_tree().root.get_child(1)
-	
-	root_node.add_child(inventory)
 
 	
 func _on_item_dropped(_itemData: Global.ItemData, count: int):
@@ -64,18 +67,27 @@ func _on_item_dropped(_itemData: Global.ItemData, count: int):
 	# Set the item's position in the Global scene
 	newWorldItem.global_position = drop_position
 
+# Function to find and update the interaction prompt visibility
+func update_interact_prompt():
+	if GUI_manager.interact_prompt:
+		# Update visibility based on whether there are interactable objects in range
+		GUI_manager.interact_prompt.visible = interactables_in_range.size() > 0# and !INV_manger.inventory.visible
+	else:
+		print("GuiInteractPrompt not found in the current scene.")
+
 # ----------------------------------------------------------------
 # Godot functions
 # ----------------------------------------------------------------
 
 func _ready() -> void:
-	# Initialize the inventory when the scene is ready using deferred initialization
+	# Initialize the player's inventory and connected gui scenes
+	call_deferred("init_managers")
 	call_deferred("init_inventory")
 	
 	# Connect to interactable area
 	$Area2D.connect("area_entered", Callable(self, "_on_area_entered"))
 	$Area2D.connect("area_exited", Callable(self, "_on_area_exited"))
-
+	
 func _physics_process(delta: float) -> void:
 	# Player's z_index is based on y position
 	z_index = position.y + 1
@@ -143,17 +155,13 @@ func _physics_process(delta: float) -> void:
 func _on_area_entered(area):
 	if area is Interactable:
 		interactables_in_range.append(area)
+		update_interact_prompt()
 
 # When the player exits the range of an interactable object
 func _on_area_exited(area):
 	if area is Interactable:
 		interactables_in_range.erase(area)
-
-# Process interaction when the player presses 'E'
-#func _process(delta):
-	#if Input.is_action_just_pressed("ui_accept") and interactables_in_range.size() > 0:
-		## Optionally, you could sort by distance or choose the first in range
-		#interactables_in_range[0].interact()
+		update_interact_prompt()
 
 # Helper function to find the closest interactable
 func get_closest_interactable() -> Interactable:
@@ -169,33 +177,14 @@ func get_closest_interactable() -> Interactable:
 	return closest
 
 func _input(event):
-	if event.is_action_pressed("interact"):# && interactables_in_range.size() > 0:
+	if event.is_action_pressed("interact"):
 		# Find the closest interactable if multiple are in range
 		var closest_interactable = get_closest_interactable()
 		if closest_interactable:
 			print("Interacting with: ", closest_interactable)
-			closest_interactable.interact()			
-		
-		# # Find closest item in the world
-		# var closest_item = null
-		# var closest_distance = INTERACT_RADIUS
-		# for child in get_tree().root.get_child(1).get_children():
-		# 	if child is WorldItem:
-		# 		var distance = position.distance_to(child.global_position)
-		# 		if distance < closest_distance:
-		# 			closest_item = child
-		# 			closest_distance = distance
-		
-		# if closest_item:
-		# 	# Get the item type and count
-		# 	var itemData = closest_item.itemData
-		# 	var count = closest_item.count
-			
-		# 	# Remove the item from the world
-		# 	closest_item.handle_item_pickup()
-			
-		# 	# Add the item to the inventory
-		# 	inventory.add_item(itemData, count)
+			closest_interactable.interact()
+			update_interact_prompt()
 
-		# 	print("Picked up item: ", itemData.name)
-		# 	print("Item count: ", count)
+	elif event.is_action_pressed("inventory_toggle"):
+		inventory.visible = not inventory.visible
+		update_interact_prompt()

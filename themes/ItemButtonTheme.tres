@@ -1,6 +1,9 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://do5xpvjh87ye"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://do5xpvjh87ye"]
+
+[ext_resource type="Texture2D" uid="uid://cjeen4ctts43c" path="res://assets/UI/ItemSelect.png" id="1_vmdq1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p73tq"]
+texture = ExtResource("1_vmdq1")
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxTexture_p73tq")

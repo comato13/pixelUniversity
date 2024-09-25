@@ -43,6 +43,7 @@ scroll_active = false
 
 [node name="Button" type="Button" parent="."]
 z_index = 1
+texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0

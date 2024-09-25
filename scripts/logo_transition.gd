@@ -59,6 +59,8 @@ func move_player_to_new_scene(current_scene, new_scene, player_position):
 		# Add the player to the new scene
 		new_scene.add_child(player)
 		player.global_position = player_position
+		player.update_interact_prompt()
+		
 	else:
 		# Current scene doesn't have a player, check if the new scene has one
 

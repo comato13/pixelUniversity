@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name Inventory
 
 # Reference to Item Scene
-var ItemScene = preload("res://scenes/UI_Item.tscn")
+var ItemScene = preload("res://scenes/UI_item.tscn")
 
 # Signals
 signal item_dropped(_itemData: Global.ItemData, count: int)
@@ -107,11 +107,6 @@ func update_ui():
 					
 			# Add the item to the grid container
 			grid_container.add_child(new_item)
-
-func _input(event):
-	if event.is_action_pressed("inventory_toggle"):# and held_item != null:
-		self.visible = not self.visible
-
 
 func _on_use_item_pressed():
 	print("Use item button pressed")

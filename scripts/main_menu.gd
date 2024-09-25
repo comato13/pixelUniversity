@@ -7,7 +7,7 @@ var setting_scene = preload("res://scenes/setting.tscn")
 
 func _on_new_game_pressed():
 	$ClickSFX.play()
-	LogoTransition.change_scene(levelTwo, true)
+	LogoTransition.change_scene(levelTwo, false)
 
 
 func _on_continue_pressed() -> void:

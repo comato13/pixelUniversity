@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnwnxmuxiehkl"]
+
+[ext_resource type="Script" path="res://scripts/INV_manager.gd" id="1_akrvp"]
+
+[node name="INV_manager" type="Node2D"]
+script = ExtResource("1_akrvp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

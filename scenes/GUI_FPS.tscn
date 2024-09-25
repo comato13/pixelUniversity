@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxste7ow8ytfm"]
+[gd_scene load_steps=3 format=3 uid="uid://byy2psyi2kwfp"]
 
-[ext_resource type="FontFile" uid="uid://s2f6s3wv7keu" path="res://assets/fonts/Retro Gaming.ttf" id="1_d2u7b"]
+[ext_resource type="Script" path="res://scripts/GUI_FPS.gd" id="1_kj0xg"]
+[ext_resource type="FontFile" uid="uid://s2f6s3wv7keu" path="res://assets/fonts/Retro Gaming.ttf" id="2_8oobc"]
 
-[node name="Control" type="Control"]
+[node name="FPSCounter" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -10,26 +11,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kj0xg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 11.0
+offset_right = 20.0
+offset_bottom = 3.0
 scale = Vector2(1.73943, 3.93926)
 color = Color(0.26, 0.26, 0.26, 0.541176)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="FPSLabel" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 0
 offset_left = 1.0
 offset_right = 401.0
 offset_bottom = 400.0
 scale = Vector2(0.25, 0.391)
-theme_override_fonts/normal_font = ExtResource("1_d2u7b")
+theme_override_fonts/normal_font = ExtResource("2_8oobc")
 theme_override_font_sizes/bold_italics_font_size = 1
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "test GUI
-abcdefghijklmnop
-12345678910
-ABCDEFGHIJKLMNOP"
+text = "FPS: 400"
