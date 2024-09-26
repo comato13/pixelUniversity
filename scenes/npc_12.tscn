@@ -200,7 +200,8 @@ size = Vector2(33, 44)
 
 [node name="Npc12AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dxkui")
-animation = &"IdleUp"
+animation = &"IdleDown"
+autoplay = "IdleDown"
 
 [node name="Npc12CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 8)

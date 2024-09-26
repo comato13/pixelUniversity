@@ -571,9 +571,9 @@ size = Vector2(26, 48)
 
 [node name="Npc1Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yfd40")
-animation = &"IdleUp"
-autoplay = "IdleDown"
-frame_progress = 0.878337
+animation = &"ReadDown"
+autoplay = "ReadDown"
+frame_progress = 0.24466
 
 [node name="Npc1Collision2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)

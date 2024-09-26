@@ -200,7 +200,8 @@ size = Vector2(31, 42)
 
 [node name="Npc13AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_csbnd")
-animation = &"IdleUp"
+animation = &"IdleDown"
+autoplay = "IdleDown"
 
 [node name="Npc13CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 9)

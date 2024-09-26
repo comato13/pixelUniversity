@@ -388,7 +388,8 @@ size = Vector2(29, 40)
 
 [node name="Npc10AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_muiw0")
-animation = &"WalkDown"
+animation = &"IdleDown"
+autoplay = "IdleDown"
 
 [node name="Npc10CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 10)
