@@ -1,5 +1,6 @@
-[gd_scene load_steps=64 format=3 uid="uid://dv6aetjynodsl"]
+[gd_scene load_steps=65 format=3 uid="uid://dv6aetjynodsl"]
 
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_52vji"]
 [ext_resource type="Texture2D" uid="uid://cyrmnu5pq7a8o" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Scout_32x32_3.png" id="1_hqjdb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4x518"]
@@ -476,15 +477,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsafs"]
-size = Vector2(31, 47)
+size = Vector2(32, 9.75)
 
 [node name="Npc6" type="CharacterBody2D"]
+script = ExtResource("1_52vji")
 
 [node name="Npc6AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_5ndcl")
 animation = &"IdleUp"
 autoplay = "IdleUp"
 
 [node name="Npc6CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 6.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_jsafs")

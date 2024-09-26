@@ -12,18 +12,20 @@ disable_mode = 2
 script = ExtResource("1_8o6h4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
 texture = ExtResource("1_dtphs")
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_ykms3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -8.0
-offset_top = 4.0
+offset_top = -6.0
 offset_right = 7.0
-offset_bottom = 12.0
+offset_bottom = 2.0
 theme_override_fonts/normal_font = ExtResource("2_02c85")
 theme_override_font_sizes/normal_font_size = 5
 text = "1"

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlnlhgklgpso"]
+
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="1_55dqp"]
+[ext_resource type="Script" path="res://scripts/GUI_pause_menu.gd" id="1_jaooy"]
+[ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="2_qurve"]
+
+[node name="GuiPauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jaooy")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qurve")
+volume_db = -3.08
+bus = &"Sfx"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.537
+anchor_top = 0.854
+anchor_right = 0.537
+anchor_bottom = 0.854
+offset_left = -49.766
+offset_top = -75.72
+offset_right = 99.234
+offset_bottom = 63.28
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.66, 0.66)
+theme = ExtResource("1_55dqp")
+theme_override_constants/separation = 15
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_55dqp")
+text = "Continue"
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_55dqp")
+text = "Settings"
+flat = true
+
+[node name="Main_Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_55dqp")
+action_mode = 0
+text = "Main Menu"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]

@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 121.0
 offset_top = 166.0
 offset_right = 165.0
@@ -20,6 +21,7 @@ color = Color(0.26, 0.26, 0.26, 0.541176)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
+layout_mode = 0
 offset_left = 124.0
 offset_top = 167.0
 offset_right = 416.0

@@ -36,4 +36,4 @@ func handle_item_pickup():
 # Handle physics process for z-index sorting
 func _physics_process(_delta: float) -> void:
 	# z_index is based on y position
-	z_index = position.y + 1
+	z_index = int(position.y) + 1000

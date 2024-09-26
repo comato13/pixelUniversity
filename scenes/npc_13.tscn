@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://cysgrhrlvdwxg"]
+[gd_scene load_steps=29 format=3 uid="uid://cysgrhrlvdwxg"]
 
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_rcqpc"]
 [ext_resource type="Texture2D" uid="uid://b6tjtpkenpnb2" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Swimmers_32x32.png" id="1_yo5d8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vwym"]
@@ -194,15 +195,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mwqb"]
-size = Vector2(31, 42)
+size = Vector2(32, 10)
 
 [node name="Npc13" type="CharacterBody2D"]
+script = ExtResource("1_rcqpc")
 
 [node name="Npc13AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_csbnd")
 animation = &"IdleDown"
 autoplay = "IdleDown"
 
 [node name="Npc13CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 9)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_0mwqb")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://bde61bg8mp3t2"]
+[gd_scene load_steps=53 format=3 uid="uid://bde61bg8mp3t2"]
 
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_bk3yv"]
 [ext_resource type="Texture2D" uid="uid://c7qjxf5y6tscy" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Zombie_1_32x32.png" id="1_vpo63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4yt6"]
@@ -382,15 +383,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5dvq"]
-size = Vector2(32, 43)
+size = Vector2(32, 10.25)
 
 [node name="Npc16" type="CharacterBody2D"]
+script = ExtResource("1_bk3yv")
 
 [node name="Npc16AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_36it0")
 animation = &"IdleRight"
 autoplay = "IdleDown"
 
 [node name="Npc16CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.5)
+position = Vector2(0, -4.875)
 shape = SubResource("RectangleShape2D_e5dvq")

@@ -90,8 +90,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Player's z_index is based on y position
-	z_index = position.y + 1
-		
+	z_index = int(position.y)+1000
+
 	# Initialize a new vector to store the direction of movement
 	var motion = Vector2()
 

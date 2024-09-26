@@ -1,5 +1,6 @@
-[gd_scene load_steps=76 format=3 uid="uid://cc73ov3iyub4s"]
+[gd_scene load_steps=77 format=3 uid="uid://cc73ov3iyub4s"]
 
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_b81w8"]
 [ext_resource type="Texture2D" uid="uid://csxtppbfmmcc7" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Postman_32x32_1.png" id="1_g02a6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ixkc"]
@@ -565,16 +566,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw34a"]
-size = Vector2(26, 48)
+size = Vector2(28, 10)
 
 [node name="Npc1" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_b81w8")
 
 [node name="Npc1Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_yfd40")
 animation = &"ReadDown"
 autoplay = "ReadDown"
 frame_progress = 0.24466
 
 [node name="Npc1Collision2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_fw34a")
