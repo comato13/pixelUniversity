@@ -15,7 +15,8 @@ func _on_continue_pressed() -> void:
 
 
 func _on_setting_pressed() -> void:
-	pass # Replace with function body.
+	$ClickSFX.play()
+	LogoTransition.change_scene(setting_scene, false)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

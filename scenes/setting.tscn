@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=18 format=3 uid="uid://dc03w74gahs0t"]
 
 [ext_resource type="Script" path="res://scripts/setting.gd" id="1_tpjvd"]
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://k5ex4b3taaon" path="res://assets/graphic/videoText.png" id="11_idp1c"]
 [ext_resource type="Texture2D" uid="uid://cj5if685yfxmy" path="res://assets/graphic/exitButton.png" id="12_hnjyl"]
 [ext_resource type="Texture2D" uid="uid://ci5lccil82536" path="res://assets/graphic/exitButtonClicked.png" id="13_100v0"]
+[ext_resource type="Texture2D" uid="uid://ndtdjetnh2sx" path="res://assets/graphic/BugReport.png" id="14_123ar"]
+[ext_resource type="Texture2D" uid="uid://c1s1vgi2b80ex" path="res://assets/graphic/bugReportButton.png" id="15_oljyd"]
+[ext_resource type="Texture2D" uid="uid://c0tgbul76kq5v" path="res://assets/graphic/bugReportButtonClicked.png" id="16_yw3e0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
@@ -84,7 +87,7 @@ position = Vector2(219, 26)
 scale = Vector2(0.198732, 0.198732)
 texture = ExtResource("11_idp1c")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="ExitToMenu" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 271.0
 offset_top = 9.0
@@ -121,4 +124,21 @@ max_value = 0.0
 script = ExtResource("8_ojnie")
 bus_name = "Sfx"
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="BugReport" type="Sprite2D" parent="."]
+position = Vector2(220, 109)
+scale = Vector2(0.183334, 0.183334)
+texture = ExtResource("14_123ar")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 116.0
+offset_right = 226.0
+offset_bottom = 130.0
+texture_normal = ExtResource("15_oljyd")
+texture_pressed = ExtResource("16_yw3e0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="ExitToMenu" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
