@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=4 uid="uid://b1vjxwj3t3sce"]
+
+[ext_resource type="Script" path="res://scripts/GUI_energy_bar.gd" id="1_i3b2v"]
+[ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="2_xvxna"]
+[ext_resource type="TileSet" uid="uid://ba6wenstgktss" path="res://assets/UI/modernuserinterface-win/16x16/UI_tileset.tres" id="3_nkj4k"]
+[ext_resource type="Texture2D" uid="uid://b37fsuke44iqj" path="res://assets/UI/modernuserinterface-win/32x32/Modern_UI_Style_2_32x32.png" id="6_wwm5a"]
+
+[node name="GuiEnergyBar" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_i3b2v")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xvxna")
+volume_db = -3.08
+bus = &"Sfx"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-15, 0)
+tile_map_data = PackedByteArray("AAAFAAAAAAARABgAAAACAAAAAAARABgAAAADAAAAAAARABgAAAAEAAAAAAARABgAAAAGAAAAAAASABgAAAABAAAAAAAQABgAAAA=")
+tile_set = ExtResource("3_nkj4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wwm5a")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(328, 324, 18, 26)
+
+[node name="Bar" type="Node2D" parent="."]
+position = Vector2(16, 5)
+
+[node name="Start" type="Sprite2D" parent="Bar"]
+position = Vector2(0, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wwm5a")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(542, 810, 2, 12)
+
+[node name="Middle" type="Sprite2D" parent="Bar"]
+position = Vector2(1, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wwm5a")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(560, 810, 2, 12)
+
+[node name="End" type="Sprite2D" parent="Bar"]
+position = Vector2(66, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wwm5a")
+region_enabled = true
+region_rect = Rect2(574, 810, 4, 12)

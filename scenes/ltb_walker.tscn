@@ -1,6 +1,6 @@
 [gd_scene load_steps=109 format=3 uid="uid://t164510wrgp6"]
 
-[ext_resource type="Script" path="res://ltb_walker.gd" id="1_po51d"]
+[ext_resource type="Script" path="res://scripts/ltb_walker.gd" id="1_po51d"]
 [ext_resource type="Texture2D" uid="uid://csxtppbfmmcc7" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Postman_32x32_1.png" id="2_pyusx"]
 [ext_resource type="Texture2D" uid="uid://b5dj2psdfs7vy" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Postman_32x32_3.png" id="3_asrbl"]
 [ext_resource type="Texture2D" uid="uid://8pb6okvsn6nh" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Scout_32x32_1.png" id="4_qh52h"]
@@ -773,6 +773,7 @@ radius = 16.0
 height = 50.0
 
 [node name="LTBWalker" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_po51d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

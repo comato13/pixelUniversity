@@ -41170,4 +41170,10 @@ position = Vector2(126, 307)
 visible = false
 position = Vector2(290, 345)
 target_scene = ExtResource("159_mhkmf")
-target_position = Vector2(112, 200)
+target_position = Vector2(55, 105)
+
+[node name="Door2" parent="." instance=ExtResource("158_33nvf")]
+visible = false
+position = Vector2(592, 343)
+target_scene = ExtResource("159_mhkmf")
+target_position = Vector2(55, 105)
