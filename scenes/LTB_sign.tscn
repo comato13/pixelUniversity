@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2h6bq0glb6fr"]
+[gd_scene load_steps=3 format=3 uid="uid://2h6bq0glb6fr"]
 
 [ext_resource type="Texture2D" uid="uid://b2h6qjh57p6rs" path="res://assets/graphic/popup-export.png" id="1_42xxt"]
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="2_qjxlw"]
 
 [node name="LTBSign" type="CanvasLayer"]
 
@@ -11,10 +12,11 @@ texture = ExtResource("1_42xxt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 80.0
-offset_top = 31.0
+offset_top = 28.0
 offset_right = 715.0
-offset_bottom = 496.0
+offset_bottom = 512.0
 scale = Vector2(0.26, 0.26)
+theme = ExtResource("2_qjxlw")
 bbcode_enabled = true
 text = " The Learning & Teaching Building (LTB) for Monash University marks a new gateway to the Clayton campus. The LTB is a multi-faculty learning facility that serves a significant proportion of the student community. Innovative formal learning and teaching spaces are complemented by informal learning hubs that feature a variety of study settings. The modernist lineage of the campus brings with it a philosophy of creating building objects within the indigenous landscape setting. The design of LTB keeps learning activity close to the ground to create a connection with the campus landscape and imbue the building with qualities of various terrains."
 fit_content = true

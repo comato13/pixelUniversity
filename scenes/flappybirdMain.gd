@@ -7,11 +7,11 @@ var game_over : bool
 var scroll
 var score
 var ground_offset : int = 999
-const SCROLL_SPEED : float = 0.03
+const SCROLL_SPEED : float = 0.05
 var screen_size : Vector2i
 var ground_height : int
 var pipes : Array
-const PIPE_DELAY : int = 500
+const PIPE_DELAY : int = 10
 const PIPE_RANGE : int = 50
 
 # Called when the node enters the scene tree for the first time.

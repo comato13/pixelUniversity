@@ -30,40 +30,41 @@ size = Vector2(9, 44)
 script = ExtResource("1_qd8pe")
 
 [node name="Upper" type="Sprite2D" parent="."]
-position = Vector2(0.249994, -366.471)
+position = Vector2(-367.75, -371.471)
 scale = Vector2(0.355769, 0.778575)
 texture = ExtResource("2_8vs8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.250021, -379.433)
+position = Vector2(-368.25, -384.433)
 shape = SubResource("RectangleShape2D_4ls37")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.249979, -308.865)
+position = Vector2(-367.75, -313.865)
 shape = SubResource("SegmentShape2D_0rll8")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(1.24998, -295.865)
+position = Vector2(-366.75, -300.865)
 shape = SubResource("SegmentShape2D_i1k5y")
 
 [node name="Lower" type="Sprite2D" parent="."]
-position = Vector2(0.50001, -148.096)
+position = Vector2(-367.5, -153.096)
 scale = Vector2(0.365385, 0.829283)
 texture = ExtResource("3_7o5h1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(2.47955e-05, -135.363)
+position = Vector2(-368, -140.363)
 shape = SubResource("RectangleShape2D_1k065")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-8.49998, -220.363)
+position = Vector2(-376.5, -225.363)
 shape = SubResource("SegmentShape2D_wfns6")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(0.500025, -233.363)
+position = Vector2(-367.5, -238.363)
 shape = SubResource("SegmentShape2D_jqw4s")
 
 [node name="Score" type="Area2D" parent="." groups=["pipes"]]
+position = Vector2(-368, -5.00003)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Score"]
 position = Vector2(9, -260)

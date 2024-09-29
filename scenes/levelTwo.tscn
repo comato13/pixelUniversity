@@ -1,4 +1,4 @@
-[gd_scene load_steps=363 format=4 uid="uid://wd1vu6t3ltj2"]
+[gd_scene load_steps=364 format=4 uid="uid://wd1vu6t3ltj2"]
 
 [ext_resource type="Texture2D" uid="uid://ddfla0s36i2fc" path="res://assets/tiles/SmallCityTilesets 8pxSizePixelart/tilemapResurrectOriginalsize.png" id="1_rgr2f"]
 [ext_resource type="Texture2D" uid="uid://b2oc40chguyk1" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Autotiles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32_20.png" id="2_xhvun"]
@@ -161,8 +161,10 @@
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="157_otdr0"]
 [ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="158_33nvf"]
 [ext_resource type="Script" path="res://scenes/sign_ltb.gd" id="161_annsd"]
+[ext_resource type="PackedScene" uid="uid://e26t0c40m1p0" path="res://scenes/ltb.tscn" id="161_glbtn"]
 [ext_resource type="Texture2D" uid="uid://0dsylvnrorpu" path="res://assets/graphic/signboard.png" id="161_p3vbp"]
 [ext_resource type="PackedScene" uid="uid://2h6bq0glb6fr" path="res://scenes/LTB_sign.tscn" id="163_ydcdf"]
+[ext_resource type="PackedScene" uid="uid://bnu51bup7pxwl" path="res://scenes/flappybird.tscn" id="165_tjfik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvnx8"]
 texture = ExtResource("1_rgr2f")
@@ -41075,9 +41077,6 @@ sources/171 = SubResource("TileSetAtlasSource_iq2s4")
 sources/10 = SubResource("TileSetAtlasSource_x412r")
 sources/11 = SubResource("TileSetAtlasSource_wgwnl")
 
-[sub_resource type="Resource" id="Resource_s5315"]
-metadata/__load_path__ = "res://scenes/ltb.tscn"
-
 [sub_resource type="Resource" id="Resource_nfbyr"]
 metadata/__load_path__ = "res://scenes/ltb.tscn"
 
@@ -41175,14 +41174,14 @@ position = Vector2(-235, 46)
 scale = Vector2(0.5, 0.5)
 
 [node name="player" parent="." instance=ExtResource("157_otdr0")]
-position = Vector2(126, 307)
+position = Vector2(-35, 502)
 collision_layer = 11
 collision_mask = 11
 
 [node name="Door" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(290, 345)
-target_scene = SubResource("Resource_s5315")
+target_scene = ExtResource("161_glbtn")
 target_position = Vector2(55, 105)
 
 [node name="Door2" parent="." instance=ExtResource("158_33nvf")]
@@ -41208,6 +41207,12 @@ texture = ExtResource("161_p3vbp")
 
 [node name="LTBSign" parent="SignLTB" instance=ExtResource("163_ydcdf")]
 visible = false
+
+[node name="Door3" parent="." instance=ExtResource("158_33nvf")]
+visible = false
+position = Vector2(627, -138)
+target_scene = ExtResource("165_tjfik")
+target_position = Vector2(200, 0)
 
 [connection signal="body_entered" from="SignLTB" to="SignLTB" method="_on_body_entered"]
 [connection signal="body_exited" from="SignLTB" to="SignLTB" method="_on_body_exited"]
