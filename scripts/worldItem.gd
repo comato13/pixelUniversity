@@ -22,7 +22,7 @@ func _ready():
 # Override the interact method from the Interactable class
 func interact() -> void:
 	# Add the item to the player's inventory
-	var playerINV = Global.INV_manager.get_node(Global.PLAYER_INV_NAME)
+	var playerINV = Global.INV_manager.canvas_layer.get_node(Global.PLAYER_INV_NAME)
 	if playerINV:
 		playerINV.add_item(itemData, count)
 	else:
