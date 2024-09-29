@@ -4,7 +4,7 @@ var worldItemScene = preload("res://scenes/worldItem.tscn")
 
 #	This is baaaaasically crossy road (or frogger, w/e)
 #	Preload the walker
-var ltb_walker := preload("res://Scenes/ltb_walker.tscn")
+# !!!NEED FIX!!!
 
 #	Different spawn related constants
 const N_SPAWN_LOCS    = 3
@@ -82,18 +82,18 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_spawn_timer_timeout() -> void:
-	#	For each location, randomly determine whether or not to spawn a new walker
-	for i in N_SPAWN_LOCS:
-		if randf() < SPAWN_LOC_FREQ[i]:
-			var walker = ltb_walker.instantiate()
-			
-			walker.init_walker(
-				"Animation" + str(randi_range(1, 8)),
-				SPAWN_LOC_SPEED[i],
-				SPAWN_LOC_X[i],
-				SPAWN_LOC_Y[i],
-				(1 if SPAWN_LOC_X[i] == SPAWN_LOC_LEFT else -1)
-			)
-			
-			add_child(walker)
+#func _on_spawn_timer_timeout() -> void:
+	##	For each location, randomly determine whether or not to spawn a new walker
+	#for i in N_SPAWN_LOCS:
+		#if randf() < SPAWN_LOC_FREQ[i]:
+			##var walker = ltb_walker.instantiate()
+			#
+			##walker.init_walker(
+				#"Animation" + str(randi_range(1, 8)),
+				#SPAWN_LOC_SPEED[i],
+				#SPAWN_LOC_X[i],
+				#SPAWN_LOC_Y[i],
+				#(1 if SPAWN_LOC_X[i] == SPAWN_LOC_LEFT else -1)
+			#)
+			#
+			##add_child(walker)
