@@ -19,6 +19,7 @@ var itemCounts: Dictionary = {}
 # Initialize the inventory
 func setup_inventory(titleStr: String = "Inventory") -> void:
 	print("Setting up inventory with random items...")
+	name = titleStr
 	control = $Control
 	richTextLabel = $Control/Title
 	scroll_container = $Control/ScrollContainer

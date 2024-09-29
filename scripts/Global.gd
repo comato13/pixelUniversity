@@ -1,5 +1,9 @@
 extends Node
 
+# Load manager scenes
+var GUI_manager_scene = preload("res://scenes/GUI_manager.tscn")
+var INV_manager_scene = preload("res://scenes/INV_manager.tscn")
+
 # Define the ItemData class to hold item details
 class ItemData:
 	var name: String
@@ -11,11 +15,30 @@ class ItemData:
 		self.position = _position
 		self.size = _size
 
-
+# Global variables
 var items = {}
 var are_items_loaded: bool = false
 
+var GUI_manager
+var INV_manager
+
+# Constants
+const SAVE_PATH = "res://saves/"
+const INVENTORY_FILENAME = "saved_INV_manager.tscn"
+const CURRENT_SCENE_FILENAME = "saved_current_scene.tscn"
+const Z_INDEX_OFFSET = 1000
+const PLAYER_INV_NAME = "Backpack Inventory"
+
 func _ready():
+	# Initialize the managers
+	GUI_manager = GUI_manager_scene.instantiate()
+	INV_manager = INV_manager_scene.instantiate()
+
+	# Add the managers to the scene tree
+	add_child(GUI_manager)
+	add_child(INV_manager)
+
+	# Load the item data
 	load_item_data()
 
 func load_item_data():

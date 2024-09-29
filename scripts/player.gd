@@ -2,8 +2,6 @@ extends CharacterBody2D
 @onready var sprite2d = $Sprite2D
 
 var worldItemScene = preload("res://scenes/worldItem.tscn")
-var GUI_managerScene = preload("res://scenes/GUI_manager.tscn")
-var INV_managerScene = preload("res://scenes/INV_manager.tscn")
 
 # --------------------- Settings ----------------------
 const SPEED = 100.0
@@ -19,31 +17,17 @@ var dir = DOWN
 
 # Array to store interactable objects in range
 var interactables_in_range: Array = []
-# Gui manager
-var GUI_manager
-# Inventory manager
-var INV_manager
+# Player's inventory
 var inventory
 
 # ----------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------
 
-func init_managers():
-	# Initialize the GUI and Inventory managers
-	GUI_manager = GUI_managerScene.instantiate()
-	INV_manager = INV_managerScene.instantiate()
-	
-	# Get the global node (assuming second child of root)
-	var root_node = get_tree().root.get_child(1)
-
-	root_node.add_child(INV_manager)
-	root_node.add_child(GUI_manager)
-
 func init_inventory() -> void:
 	# Create a new inventory instance
-	inventory = INV_manager.new_inventory("Backpack Inventory")
-	
+	inventory = Global.INV_manager.new_inventory(Global.PLAYER_INV_NAME)
+
 	# Connect the inventory's item_dropped signal to the player
 	inventory.connect("item_dropped", Callable(self, "_on_item_dropped"))
 
@@ -69,11 +53,8 @@ func _on_item_dropped(_itemData: Global.ItemData, count: int):
 
 # Function to find and update the interaction prompt visibility
 func update_interact_prompt():
-	if GUI_manager.interact_prompt:
-		# Update visibility based on whether there are interactable objects in range
-		GUI_manager.interact_prompt.visible = interactables_in_range.size() > 0# and !INV_manger.inventory.visible
-	else:
-		print("GuiInteractPrompt not found in the current scene.")
+	# Update visibility based on whether there are interactable objects in range
+	Global.GUI_manager.interact_prompt.visible = interactables_in_range.size() > 0 and !inventory.visible
 
 # ----------------------------------------------------------------
 # Godot functions
@@ -81,7 +62,6 @@ func update_interact_prompt():
 
 func _ready() -> void:
 	# Initialize the player's inventory and connected gui scenes
-	call_deferred("init_managers")
 	call_deferred("init_inventory")
 	
 	# Connect to interactable area
@@ -90,7 +70,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Player's z_index is based on y position
-	z_index = int(position.y)+1000
+	z_index = int(position.y) + Global.Z_INDEX_OFFSET
 
 	# Initialize a new vector to store the direction of movement
 	var motion = Vector2()
@@ -143,6 +123,7 @@ func _physics_process(delta: float) -> void:
 
 	# Apply acceleration for a smoother start and deceleration for a smoother stop
 	velocity = velocity.lerp(motion, 4.0 * delta)
+
 	# Apply velocity to the character with the move_and_slide function
 	move_and_slide()
 

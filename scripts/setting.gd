@@ -2,11 +2,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -17,7 +17,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 func _on_texture_button_pressed() -> void:
 	$ClickSFX.play()
 	var mainMenu = load("res://scenes/mainMenu.tscn")
-	LogoTransition.change_scene(mainMenu, false)
+	LogoTransition.change_scene(mainMenu, false, false, false)
 
 
 func _on_texture_button_2_pressed() -> void:

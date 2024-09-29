@@ -2,48 +2,40 @@ extends Node
 
 var inventoryScene = preload("res://scenes/inventory.tscn")
 
-var inventoryArray = []
-
+var canvas_layer
 
 # ----------------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------------
 
 # Initialize the inventory manager
-func new_inventory(name: String) -> Node:
+func new_inventory(INVname: String) -> Node:
+	# Check if an inventory with the same name already exists
+	if has_node(INVname):
+		print("Inventory with name ", INVname, " already exists!")
+		return get_node(INVname)
+	
 	# Create a new inventory instance
 	var inventory = inventoryScene.instantiate()
 	
 	# Call the setup function to initialize the inventory
-	inventory.setup_inventory("Backpack Inventory")
+	inventory.setup_inventory(INVname)
+	inventory.set_owner(Global.INV_manager) # Set the owner of the inventory to the inventory manager
 	
-	# Get the global node (assuming second child of root)
-	var root_node = get_tree().root.get_child(1)
-	root_node.add_child(inventory)
-
-	# Add the inventory to the inventory array
-	inventoryArray.append(inventory)
+	# Add as child of the inventory manager
+	canvas_layer.add_child(inventory)
 
 	return inventory
 
-# Get an inventory from the inventory array
-func get_inventory(name: String) -> Node:
-	for inventory in inventoryArray:
-		if inventory.name == name:
-			return inventory
-	return null
-
 # Remove an inventory from the inventory array
-func remove_inventory(inventory: Node) -> void:
-	if inventory in inventoryArray:
-		inventoryArray.erase(inventoryArray.find(inventory))
-		inventory.queue_free()
+func remove_inventory(INVname: String) -> void:
+	if has_node(INVname):
+		get_node(INVname).queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	canvas_layer = $CanvasLayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

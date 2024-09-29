@@ -8,8 +8,6 @@ var fps_label
 var interact_prompt
 var pause_menu
 
-var is_paused = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Get the canvas layer node
@@ -24,25 +22,41 @@ func _ready() -> void:
 	canvas_layer.add_child(fps_label)
 	canvas_layer.add_child(interact_prompt)
 	canvas_layer.add_child(pause_menu)
+	
 
 	# Hide the interact prompt by default
 	interact_prompt.visible = false
-	
+
+	# Hide the pause menu by default
+	pause_menu.visible = false
+
 
 # Called every frame to check for input
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Check if the 'pause' input (Escape key) is pressed
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause_menu()
 
 # Function to toggle the pause menu and game state
 func toggle_pause_menu() -> void:
-	is_paused = !is_paused  # Toggle the paused state
-	get_tree().paused = is_paused  # Pause or unpause the game
+	var is_paused = !pause_menu.visible  # Get the current pause state
+
+	# Get the game scene (child at index 2)
+	var game_scene = get_tree().root.get_child(2)
+
+	# Pause or unpause the game scene
+	if is_paused:
+		game_scene.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		game_scene.process_mode = Node.PROCESS_MODE_INHERIT
 
 	# Show or hide the pause menu
 	pause_menu.visible = is_paused
 
-	# You may also want to stop processing certain inputs or UI elements when the game is paused
-	if is_paused:
-		$ClickSFX.play()  # Optional: play a sound effect when pausing
+
+# Functions to control visibility of GUI (it needs to be hidden in menus such as settings)
+func hide_all_gui() -> void:
+	$CanvasLayer.hide()
+
+func show_all_gui() -> void:
+	$CanvasLayer.show()
