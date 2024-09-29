@@ -9,11 +9,13 @@ class ItemData:
 	var name: String
 	var position: Vector2
 	var size: Vector2
+	var energy: float = 0.0
 
-	func _init(_name: String, _position: Vector2, _size: Vector2):
+	func _init(_name: String, _position: Vector2, _size: Vector2, _energy: float):
 		self.name = _name
 		self.position = _position
 		self.size = _size
+		self.energy = _energy
 
 # Global variables
 var items = {}
@@ -23,11 +25,15 @@ var GUI_manager
 var INV_manager
 
 # Constants
+const ITEM_DATA_PATH = "res://assets/items/items.json"
+const PLAYER_INV_NAME = "Backpack Inventory"
+
 const SAVE_PATH = "res://saves/"
 const INVENTORY_FILENAME = "saved_INV_manager.tscn"
 const CURRENT_SCENE_FILENAME = "saved_current_scene.tscn"
+
 const Z_INDEX_OFFSET = 1000
-const PLAYER_INV_NAME = "Backpack Inventory"
+
 
 func _ready():
 	# Initialize the managers
@@ -41,8 +47,11 @@ func _ready():
 	# Load the item data
 	load_item_data()
 
+	# Hide the GUI to begin
+	GUI_manager.hide_all_gui()
+
 func load_item_data():
-	var file = FileAccess.open("res://data/items.json", FileAccess.READ)
+	var file = FileAccess.open(ITEM_DATA_PATH, FileAccess.READ)
 	if file:
 		var json = JSON.new()
 		var parse_result = json.parse(file.get_as_text())
@@ -58,7 +67,8 @@ func load_item_data():
 				var item_name = item["name"]
 				var item_position = Vector2(item["position"][0], item["position"][1])
 				var item_size = Vector2(item["size"][0], item["size"][1])
-				var item_data = ItemData.new(item_name, item_position, item_size)
+				var item_energy = float(item["energy"])
+				var item_data = ItemData.new(item_name, item_position, item_size, item_energy)
 				items[item_name] = item_data
 			
 			are_items_loaded = true

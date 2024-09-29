@@ -60,6 +60,12 @@ func change_scene(
 		# We are switching to a game scene, move the player
 		move_player_to_new_scene(current_scene, new_scene, player_position)
 
+		# Show the GUI
+		Global.GUI_manager.show_all_gui()
+	else:
+		# We are switching to a menu scene, hide the GUI
+		Global.GUI_manager.hide_all_gui()
+
 
 	# End the transition
 	$ReverseSwoosh.play()

@@ -3,10 +3,12 @@ extends Node
 var GUI_FPS_scene = preload("res://scenes/GUI_FPS.tscn")
 var GUI_interact_prompt_scene = preload("res://scenes/GUI_interact_prompt.tscn")
 var GUI_pause_menu_scene = preload("res://scenes/GUI_pause_menu.tscn")
+var GUI_energy_bar_scene = preload("res://scenes/GUI_energy_bar.tscn")
 
 var fps_label
 var interact_prompt
 var pause_menu
+var energy_bar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,13 +19,14 @@ func _ready() -> void:
 	fps_label = GUI_FPS_scene.instantiate()
 	interact_prompt = GUI_interact_prompt_scene.instantiate()
 	pause_menu = GUI_pause_menu_scene.instantiate()
+	energy_bar = GUI_energy_bar_scene.instantiate()
 
 	# Add them as children of the canvas layer
 	canvas_layer.add_child(fps_label)
 	canvas_layer.add_child(interact_prompt)
 	canvas_layer.add_child(pause_menu)
+	canvas_layer.add_child(energy_bar)
 	
-
 	# Hide the interact prompt by default
 	interact_prompt.visible = false
 

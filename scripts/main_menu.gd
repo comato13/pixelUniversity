@@ -9,11 +9,6 @@ var setting_scene = preload("res://scenes/setting.tscn")
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-	# Start the transition
-	# $AnimationPlayer.play('fadeFromBlack')
-	# await $AnimationPlayer.animation_finished
-	# $AnimationPlayer.stop()
-	
 	var continueButton = $VBoxContainer/Continue
 
 	# Load the game if needed
@@ -24,12 +19,12 @@ func _ready() -> void:
 
 func _on_new_game_pressed():
 	$ClickSFX.play()
-	LogoTransition.change_scene(levelTwo, false, false, false)
+	LogoTransition.change_scene(levelTwo, false, false, true)
 
 
 func _on_continue_pressed() -> void:
 	$ClickSFX.play()
-	LogoTransition.change_scene(levelTwo, true, false, false)
+	LogoTransition.change_scene(levelTwo, true, false, true)
 
 
 func _on_setting_pressed() -> void:

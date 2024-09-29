@@ -9,4 +9,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# NPC's z_index is based on y position
 	z_index = int(position.y)+1000
-	

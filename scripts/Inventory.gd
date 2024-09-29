@@ -110,8 +110,19 @@ func update_ui():
 			grid_container.add_child(new_item)
 
 func _on_use_item_pressed():
-	print("Use item button pressed")
-	# Implement your use item logic here
+	# Find the selected item in the grid container
+	for child in grid_container.get_children():
+		# If each child has a Button node, check if it has focus
+		var button = child.get_node("Button")
+		if button and button.has_focus():
+			# Get the item type and count
+			var itemData = child.itemData
+			
+			# Remove the item from the inventory
+			if remove_item(itemData, 1):
+				Global.GUI_manager.energy_bar.update_energy(itemData.energy)
+				print("Used item: ", itemData.name)
+				print("Energy added: ", itemData.energy)
 
 func _on_drop_item_pressed():
 	# Find the selected item in the grid container

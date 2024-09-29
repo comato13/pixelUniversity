@@ -42,11 +42,8 @@ func _on_item_dropped(_itemData: Global.ItemData, count: int):
 	# Initialize the item with its type and texture
 	newWorldItem.setup_item(_itemData, count)
 	
-	# Get the root node (assuming the main scene is the root)
-	var root_node = get_tree().root.get_child(1)
-	
 	# Add the item to the root node (main scene)
-	root_node.add_child(newWorldItem)
+	get_tree().current_scene.add_child(newWorldItem)
 	
 	# Set the item's position in the Global scene
 	newWorldItem.global_position = drop_position
@@ -87,7 +84,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Normalize the motion vector to prevent diagonal speed increase and scale by moveSpeed and delta time
 	if motion.length() > 0.01:
-		motion = motion.normalized() * SPEED
+		# Get energy
+		var energy = Global.GUI_manager.energy_bar.energy
+
+		# Decrease energy when moving
+		update_energy(-Global.GUI_manager.energy_bar.energy*0.01*delta)
+
+		# Normalize the vector to prevent faster diagonal movement
+		motion = motion.normalized() * SPEED * (energy*0.6+0.4)
 		
 		if abs(motion.x) > abs(motion.y):
 			if motion.x < 0:
@@ -126,6 +130,9 @@ func _physics_process(delta: float) -> void:
 
 	# Apply velocity to the character with the move_and_slide function
 	move_and_slide()
+
+func update_energy(change: float) -> void:
+	Global.GUI_manager.energy_bar.update_energy(change)
 
 # ----------------------------------------------------------------
 # Interaction logic

@@ -15,19 +15,18 @@ func _ready() -> void:
 func interact() -> void:
 	transition()
 
+func _process(_delta: float) -> void:
+	# Set the door's z-index based on its y position
+	z_index = int(position.y) + Global.Z_INDEX_OFFSET
+
 # Custom method to handle scene transition
 func transition():
 	print("Transitioning to new scene...")
 
 	# Check if target_scene is valid
 	if target_scene:
-
 		# If the target_scene is different, instantiate the new scene
-		LogoTransition.change_scene(target_scene, false, false, true, target_position)
-
-		# var new_scene = get_tree().current_scene
-
-		
+		LogoTransition.change_scene(target_scene, false, false, true, target_position)	
 	else:
 		print("Error: target_scene is null!")
 		print("Same scene detected, moving player to target position.")
@@ -39,7 +38,6 @@ func transition():
 			player.global_position = target_position
 		else:
 			print("Warning: Player not found in the current scene!")
-		
 	return
 
 

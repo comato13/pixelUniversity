@@ -3,37 +3,50 @@
       {
         "name": "Heart",
         "position": [80, 0],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.0
       },
       {
         "name": "Water Bottle",
         "position": [80, 97],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.2
       },
       {
         "name": "Speed Up",
         "position": [80, 33],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.0
       },
       {
         "name": "Coffee",
         "position": [80, 63],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.3
       },
       {
         "name": "Money",
         "position": [64, 15],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.0
       },
       {
         "name": "Leaf",
         "position": [112, 15],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.0
       },
       {
         "name": "Perfume",
         "position": [0, 80],
-        "size": [16, 16]
+        "size": [16, 16],
+        "energy": 0.0
+      },
+      {
+        "name": "Trophy",
+        "position": [64, 48],
+        "size": [16, 16],
+        "energy": 1.0
       }
     ]
   }
