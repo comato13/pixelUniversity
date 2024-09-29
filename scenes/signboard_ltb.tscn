@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmabh587e7rww"]
+
+[ext_resource type="Texture2D" uid="uid://0dsylvnrorpu" path="res://assets/graphic/signboard.png" id="1_l8wov"]
+
+[node name="SignboardLTB" type="Sprite2D"]
+position = Vector2(255, 370)
+scale = Vector2(0.477273, 0.477273)
+texture = ExtResource("1_l8wov")
