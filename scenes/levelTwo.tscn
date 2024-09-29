@@ -159,7 +159,7 @@
 [ext_resource type="PackedScene" uid="uid://cysgrhrlvdwxg" path="res://scenes/npc_13.tscn" id="155_jr6sp"]
 [ext_resource type="PackedScene" uid="uid://bde61bg8mp3t2" path="res://scenes/npc_16.tscn" id="156_rpjq5"]
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="157_otdr0"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="158_33nvf"]
+[ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="158_33nvf"]
 [ext_resource type="PackedScene" uid="uid://q17cr763vm0q" path="res://scenes/ltb.tscn" id="159_mhkmf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvnx8"]

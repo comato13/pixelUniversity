@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7ibt8g32d6im"]
+
+[ext_resource type="Script" path="res://canvas_layer.gd" id="1_iirmn"]
+[ext_resource type="Texture2D" uid="uid://f74ucqfe2btq" path="res://assets/graphic/quitButton.png" id="2_fckdr"]
+[ext_resource type="Texture2D" uid="uid://b0dimwk61tbse" path="res://assets/graphic/quitButtonClicked.png" id="3_5xd51"]
+[ext_resource type="Texture2D" uid="uid://cqptv2budrgue" path="res://assets/graphic/restartButton.png" id="4_rmum4"]
+[ext_resource type="Texture2D" uid="uid://cdl32kfye6idm" path="res://assets/graphic/restartButtonClicked.png" id="5_jc3ve"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_iirmn")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 132.0
+offset_top = 77.0
+offset_right = 174.0
+offset_bottom = 125.0
+scale = Vector2(0.21, 0.21)
+texture_normal = ExtResource("2_fckdr")
+texture_pressed = ExtResource("3_5xd51")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RestartButton" type="TextureButton" parent="."]
+offset_left = 176.0
+offset_top = 77.0
+offset_right = 218.0
+offset_bottom = 125.0
+scale = Vector2(0.21, 0.21)
+texture_normal = ExtResource("4_rmum4")
+texture_pressed = ExtResource("5_jc3ve")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

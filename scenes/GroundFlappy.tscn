@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw4vepf3x3g5g"]
+
+[ext_resource type="Script" path="res://scenes/ground_flappy.gd" id="1_71f7o"]
+[ext_resource type="Texture2D" uid="uid://b5jilqhav8tbt" path="res://assets/graphic/groundwater.png" id="2_2o2hn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l85bf"]
+size = Vector2(321, 35)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_71f7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320.25, 181)
+scale = Vector2(1.25293, 2.23529)
+texture = ExtResource("2_2o2hn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(159.5, 180.5)
+shape = SubResource("RectangleShape2D_l85bf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
