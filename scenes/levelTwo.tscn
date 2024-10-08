@@ -1,4 +1,4 @@
-[gd_scene load_steps=364 format=4 uid="uid://wd1vu6t3ltj2"]
+[gd_scene load_steps=365 format=4 uid="uid://wd1vu6t3ltj2"]
 
 [ext_resource type="Texture2D" uid="uid://ddfla0s36i2fc" path="res://assets/tiles/SmallCityTilesets 8pxSizePixelart/tilemapResurrectOriginalsize.png" id="1_rgr2f"]
 [ext_resource type="Texture2D" uid="uid://b2oc40chguyk1" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Autotiles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32_20.png" id="2_xhvun"]
@@ -161,9 +161,10 @@
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="157_otdr0"]
 [ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="158_33nvf"]
 [ext_resource type="Script" path="res://scenes/sign_ltb.gd" id="161_annsd"]
-[ext_resource type="PackedScene" uid="uid://e26t0c40m1p0" path="res://scenes/ltb.tscn" id="161_glbtn"]
 [ext_resource type="Texture2D" uid="uid://0dsylvnrorpu" path="res://assets/graphic/signboard.png" id="161_p3vbp"]
 [ext_resource type="PackedScene" uid="uid://2h6bq0glb6fr" path="res://scenes/LTB_sign.tscn" id="163_ydcdf"]
+[ext_resource type="Script" path="res://scenes/bus_to_class.gd" id="165_21w5k"]
+[ext_resource type="PackedScene" uid="uid://d3flrmed2y1b0" path="res://scenes/npc_17.tscn" id="165_ebslc"]
 [ext_resource type="PackedScene" uid="uid://bnu51bup7pxwl" path="res://scenes/flappybird.tscn" id="165_tjfik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvnx8"]
@@ -41077,11 +41078,14 @@ sources/171 = SubResource("TileSetAtlasSource_iq2s4")
 sources/10 = SubResource("TileSetAtlasSource_x412r")
 sources/11 = SubResource("TileSetAtlasSource_wgwnl")
 
-[sub_resource type="Resource" id="Resource_nfbyr"]
-metadata/__load_path__ = "res://scenes/ltb.tscn"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx0vp"]
 size = Vector2(41.9048, 54.4762)
+
+[sub_resource type="Curve2D" id="Curve2D_k6x75"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, 313, 0, 0, 0, 0, -56, 289, 0, 0, 0, 0, -35, 264, 0, 0, 0, 0, 11, 256, 0, 0, 0, 0, 54, 261, 0, 0, 0, 0, 122, 262, 0, 0, 0, 0, 160, 257, 0, 0, 0, 0, 187, 237, 0, 0, 0, 0, 221, 179, 0, 0, 0, 0, 260, 145, 0, 0, 0, 0, 269, 110, 0, 0, 0, 0, 276, 41, 0, 0, 0, 0, 288, -20, 0, 0, 0, 0, 305, -69, 0, 0, 0, 0, 278, -118, 0, 0, 0, 0, 226, -130, 0, 0, 0, 0, 152, -141, 0, 0, 0, 0, 46, -152, 0, 0, 0, 0, -32, -151, 0, 0, 0, 0, -128, -162, 0, 0, 0, 0, -181, -201, 0, 0, 0, 0, -172, -288, 0, 0, 0, 0, -165, -360, 0, 0, 0, 0, -150, -418, 0, 0, 0, 0, -150, -481, 0, 0, 0, 0, -145, -513, 0, 0, 0, 0, -180, -544, 0, 0, 0, 0, -223, -541, 0, 0, 0, 0, -217, -444, 0, 0, 0, 0, -213, -359, 0, 0, 0, 0, -211, -307, 0, 0, 0, 0, -213, -258, 0, 0, 0, 0, -215, -213, 0, 0, 0, 0, -209, -178, 0, 0, 0, 0, -147, -147, 0, 0, 0, 0, -92, -132, 0, 0, 0, 0, -19, -122, 0, 0, 0, 0, 44, -123, 0, 0, 0, 0, 162, -160, 0, 0, 0, 0, 222, -163, 0, 0, 0, 0, 348, -169, 0, 0, 0, 0, 380, -195, 0, 0, 0, 0, 403, -248, 0, 0, 0, 0, 446, -291, 0, 0, 0, 0, 478, -318, 0, 0, 0, 0, 484, -416, 0, 0, 0, 0, 497, -477, 0, 0, 0, 0, 491, -599, 0, 0, 0, 0, 496, -659, 0, 0, 0, 0, 399, -661, 0, 0, 0, 0, 248, -633, 0, 0, 0, 0, 199, -603, 0, 0, 0, 0, 118, -612, 0, 0, 0, 0, 86, -709, 0, 0, 0, 0, 61, -762, 0, 0, 0, 0, -55, -744, 0, 0, 0, 0, -89, -678, 0, 0, 0, 0, -133, -587, 0, 0, 0, 0, -135, -353, 0, 0, 0, 0, -143, -231, 0, 0, 0, 0, -36, -87, 0, 0, 0, 0, 240, -190, 0, 0, 0, 0, 330, -103, 0, 0, 0, 0, 272, -40, 0, 0, 0, 0, 277, 143, 0, 0, 0, 0, 181, 202, 0, 0, 0, 0, -84, 313)
+}
+point_count = 67
 
 [node name="levelTwo" type="Node"]
 
@@ -41158,7 +41162,7 @@ position = Vector2(-105, -726)
 scale = Vector2(0.5, 0.5)
 
 [node name="Npc11" parent="." instance=ExtResource("153_fjd4t")]
-position = Vector2(276, 78)
+position = Vector2(304, 59)
 scale = Vector2(0.5, 0.5)
 
 [node name="Npc12" parent="." instance=ExtResource("154_ityyo")]
@@ -41181,13 +41185,11 @@ collision_mask = 11
 [node name="Door" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(290, 345)
-target_scene = ExtResource("161_glbtn")
 target_position = Vector2(55, 105)
 
 [node name="Door2" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(592, 343)
-target_scene = SubResource("Resource_nfbyr")
 target_position = Vector2(55, 105)
 
 [node name="SignLTB" type="Area2D" parent="."]
@@ -41213,6 +41215,16 @@ visible = false
 position = Vector2(627, -138)
 target_scene = ExtResource("165_tjfik")
 target_position = Vector2(200, 0)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_k6x75")
+
+[node name="BusToClass" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-81, 313)
+rotates = false
+script = ExtResource("165_21w5k")
+
+[node name="npc_17" parent="Path2D/BusToClass" instance=ExtResource("165_ebslc")]
 
 [connection signal="body_entered" from="SignLTB" to="SignLTB" method="_on_body_entered"]
 [connection signal="body_exited" from="SignLTB" to="SignLTB" method="_on_body_exited"]
