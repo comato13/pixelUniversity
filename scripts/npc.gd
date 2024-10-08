@@ -13,11 +13,6 @@ var dir = DOWN
 	
 func _physics_process(delta: float) -> void:
 
-	# Player's z_index is based on y position
-	z_index = int(position.y) + Global.Z_INDEX_OFFSET
-	
-	# Initialize a new vector to store the direction of movement
-
 	if sprite2d:
 		
 		match dir:
@@ -35,8 +30,6 @@ func _physics_process(delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# NPC's z_index is based on y position
-	z_index = int(position.y)+1000
 
 	if moveable and position.length() > 0.01:
 		if abs(position.x) > abs(position.y):
