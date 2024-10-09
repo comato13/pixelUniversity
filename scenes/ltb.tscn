@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://e26t0c40m1p0"]
+[gd_scene load_steps=13 format=4 uid="uid://e26t0c40m1p0"]
 
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="1_84t0u"]
 [ext_resource type="Script" path="res://scripts/ltb.gd" id="1_rs5uw"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cwsy0fkejyuss" path="res://scenes/npc_9.tscn" id="4_nbtt7"]
 [ext_resource type="PackedScene" uid="uid://3axft7rhous1" path="res://scenes/npc_10.tscn" id="5_1wr2n"]
 [ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="6_1kvti"]
-[ext_resource type="PackedScene" uid="uid://wd1vu6t3ltj2" path="res://scenes/levelTwo.tscn" id="7_0i8go"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fd7a"]
 texture = ExtResource("2_vcaj5")
@@ -10941,7 +10940,7 @@ autostart = true
 
 [node name="Door" parent="." instance=ExtResource("6_1kvti")]
 position = Vector2(64, -365)
-target_scene = ExtResource("7_0i8go")
+target_scene_path = "res://scenes/levelTwo.tscn"
 target_position = Vector2(592, 363)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

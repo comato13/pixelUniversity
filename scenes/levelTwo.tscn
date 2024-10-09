@@ -1,4 +1,4 @@
-[gd_scene load_steps=365 format=4 uid="uid://wd1vu6t3ltj2"]
+[gd_scene load_steps=364 format=4 uid="uid://wd1vu6t3ltj2"]
 
 [ext_resource type="Texture2D" uid="uid://ddfla0s36i2fc" path="res://assets/tiles/SmallCityTilesets 8pxSizePixelart/tilemapResurrectOriginalsize.png" id="1_rgr2f"]
 [ext_resource type="Texture2D" uid="uid://b2oc40chguyk1" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Autotiles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32/Game_Maker_Studio_Autotiles_Singles_32x32_20.png" id="2_xhvun"]
@@ -165,7 +165,6 @@
 [ext_resource type="PackedScene" uid="uid://2h6bq0glb6fr" path="res://scenes/LTB_sign.tscn" id="163_ydcdf"]
 [ext_resource type="Script" path="res://scenes/bus_to_class.gd" id="165_21w5k"]
 [ext_resource type="PackedScene" uid="uid://d3flrmed2y1b0" path="res://scenes/npc_17.tscn" id="165_ebslc"]
-[ext_resource type="PackedScene" uid="uid://bnu51bup7pxwl" path="res://scenes/flappybird.tscn" id="165_tjfik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvnx8"]
 texture = ExtResource("1_rgr2f")
@@ -41185,11 +41184,13 @@ collision_mask = 11
 [node name="Door" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(290, 345)
+target_scene_path = "res://scenes/ltb.tscn"
 target_position = Vector2(55, 105)
 
 [node name="Door2" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(592, 343)
+target_scene_path = "res://scenes/ltb.tscn"
 target_position = Vector2(55, 105)
 
 [node name="SignLTB" type="Area2D" parent="."]
@@ -41213,7 +41214,7 @@ visible = false
 [node name="Door3" parent="." instance=ExtResource("158_33nvf")]
 visible = false
 position = Vector2(627, -138)
-target_scene = ExtResource("165_tjfik")
+target_scene_path = "res://scenes/flappybird.tscn"
 target_position = Vector2(200, 0)
 
 [node name="Path2D" type="Path2D" parent="."]
