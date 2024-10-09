@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnu51bup7pxwl"]
+[gd_scene load_steps=7 format=3 uid="uid://bnu51bup7pxwl"]
 
 [ext_resource type="Script" path="res://scenes/flappybirdMain.gd" id="1_qkwac"]
 [ext_resource type="PackedScene" uid="uid://djwlqiytx0n1n" path="res://scenes/bird_body.tscn" id="2_kasxr"]
 [ext_resource type="PackedScene" uid="uid://cco1d48tsxdri" path="res://scenes/pipe.tscn" id="2_qjej0"]
 [ext_resource type="PackedScene" uid="uid://bw4vepf3x3g5g" path="res://scenes/GroundFlappy.tscn" id="3_bimgv"]
 [ext_resource type="PackedScene" uid="uid://c7ibt8g32d6im" path="res://scenes/FlappyBirdOver.tscn" id="5_t44bx"]
+[ext_resource type="Texture2D" uid="uid://b5jqnynq77kxg" path="res://assets/graphic/sky.png" id="6_7ovdf"]
 
 [node name="Flappybird" type="Node2D"]
 script = ExtResource("1_qkwac")
@@ -31,6 +32,11 @@ scale = Vector2(0.65, 0.65)
 size_flags_vertical = 0
 
 [node name="FlappyBirdOver" parent="." instance=ExtResource("5_t44bx")]
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(158.625, 95.375)
+scale = Vector2(0.177474, 0.21412)
+texture = ExtResource("6_7ovdf")
 
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
