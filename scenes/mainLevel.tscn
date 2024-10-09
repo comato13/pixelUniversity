@@ -84,7 +84,6 @@ script = ExtResource("164_283hg")
 SPEED = 30.0
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("145_fqo1y")]
-visible = false
 position = Vector2(142, 309)
 scale = Vector2(0.5, 0.5)
 
@@ -161,15 +160,17 @@ target_scene_path = "res://scenes/flappybird.tscn"
 target_position = Vector2(200, 0)
 keep_player = false
 
-[node name="DoorMarket2" parent="Doors" instance=ExtResource("160_vhcc5")]
+[node name="DoorCafe" parent="Doors" instance=ExtResource("160_vhcc5")]
+visible = false
 position = Vector2(97, -216)
-target_scene_path = "res://scenes/market1.tscn"
-target_position = Vector2(55, 105)
+target_scene_path = "res://scenes/cafe.tscn"
+target_position = Vector2(272, -45)
 
-[node name="DoorMarket1" parent="Doors" instance=ExtResource("160_vhcc5")]
+[node name="DoorMarket" parent="Doors" instance=ExtResource("160_vhcc5")]
+visible = false
 position = Vector2(-30, -217)
-target_scene_path = "res://scenes/market1.tscn"
-target_position = Vector2(55, 105)
+target_scene_path = "res://scenes/market.tscn"
+target_position = Vector2(272, -45)
 
 [node name="Signs" type="Node" parent="."]
 
