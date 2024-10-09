@@ -32,7 +32,7 @@ const SAVE_PATH = "res://saves/"
 const INVENTORY_FILENAME = "saved_INV_manager.tscn"
 const CURRENT_SCENE_FILENAME = "saved_current_scene.tscn"
 
-const Z_INDEX_OFFSET = 1000
+const Z_INDEX_OFFSET = 0
 
 
 func _ready():

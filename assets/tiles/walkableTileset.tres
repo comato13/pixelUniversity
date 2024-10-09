@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bdk8xdmgf4rho"]
+
+[ext_resource type="Texture2D" uid="uid://dqfen6t4w318f" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/ME_Theme_Sorter_32x32/3_City_Props_Singles_32x32/ME_Singles_City_Props_32x32_Flowers_2.png" id="1_84o1v"]
+[ext_resource type="Texture2D" uid="uid://covnk313bl5b4" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/ME_Theme_Sorter_32x32/3_City_Props_Singles_32x32/ME_Singles_City_Props_32x32_Flowers_3.png" id="2_6d2hu"]
+[ext_resource type="Texture2D" uid="uid://dcu64vab0qy84" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/ME_Theme_Sorter_32x32/3_City_Props_Singles_32x32/ME_Singles_City_Props_32x32_Flowers_1.png" id="3_it0pk"]
+[ext_resource type="Texture2D" uid="uid://bgs6qdlpug584" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/ME_Theme_Sorter_32x32/3_City_Props_Singles_32x32/ME_Singles_City_Props_32x32_Flowers_5.png" id="4_ntbhd"]
+[ext_resource type="Texture2D" uid="uid://wedteowc635i" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Modern_Exteriors_Complete_Singles_32x32/ME_Singles_School_32x32_Basketball_Court_2.png" id="5_n6sga"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjtjj"]
+texture = ExtResource("1_84o1v")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qt4x"]
+texture = ExtResource("2_6d2hu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fun5a"]
+texture = ExtResource("3_it0pk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eb0f"]
+texture = ExtResource("4_ntbhd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gjpb"]
+texture = ExtResource("5_n6sga")
+texture_region_size = Vector2i(416, 416)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_pjtjj")
+sources/1 = SubResource("TileSetAtlasSource_7qt4x")
+sources/2 = SubResource("TileSetAtlasSource_fun5a")
+sources/3 = SubResource("TileSetAtlasSource_0eb0f")
+sources/4 = SubResource("TileSetAtlasSource_4gjpb")

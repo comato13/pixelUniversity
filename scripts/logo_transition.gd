@@ -84,7 +84,9 @@ func move_player_to_new_scene(current_scene, new_scene, player_position):
 
 		# Delete the player from the new scene if it exists
 		if new_scene.has_node("player"):
-			new_scene.get_node("player").queue_free()
+			var existing_player = new_scene.get_node("player")
+			player_position = existing_player.global_position
+			existing_player.queue_free()
 
 		# Add the player to the new scene
 		new_scene.add_child(player)
@@ -97,7 +99,8 @@ func move_player_to_new_scene(current_scene, new_scene, player_position):
 		# If player is in new scene already, use that instance
 		if new_scene.has_node("player"):
 			var player = new_scene.get_node("player")
-			player.global_position = player_position
+			if player_position!=Vector2(0,0):
+				player.global_position = player_position
 		else:
 			# If the player doesn't exist in the new scene, create a new player
 			var new_player = preload("res://scenes/player.tscn").instantiate()
