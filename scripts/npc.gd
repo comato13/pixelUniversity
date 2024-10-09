@@ -24,12 +24,14 @@ func _physics_process(delta: float) -> void:
 				sprite2d.animation = "RunUp"
 			DOWN:
 				sprite2d.animation = "RunDown"
-		print(sprite2d.animation)
+		# print(sprite2d.animation)
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Player's z_index is based on y position
+	z_index = int(position.y) + Global.Z_INDEX_OFFSET
 
 	if moveable and position.length() > 0.01:
 		if abs(position.x) > abs(position.y):
@@ -42,5 +44,5 @@ func _process(delta: float) -> void:
 				dir = UP
 			else:
 				dir = DOWN
-		print(dir)
+		# print(dir)
 	

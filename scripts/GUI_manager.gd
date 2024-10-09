@@ -38,11 +38,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Check if the 'pause' input (Escape key) is pressed
 	if Input.is_action_just_pressed("pause"):
+		# First exit the currently shown inventory if it is open
+		if !pause_menu.visible and Global.INV_manager.shown_inv != "":
+			Global.INV_manager.toggle_inventory(Global.INV_manager.shown_inv)
+			return
+		
+		# Proceed to toggle the pause menu
 		toggle_pause_menu()
 
 # Function to toggle the pause menu and game state
 func toggle_pause_menu() -> void:
-	var is_paused = !pause_menu.visible  # Get the current pause state
+	var is_paused = !pause_menu.visible  # Get and flip the current pause state
 
 	# Get the game scene (child at index 2)
 	var game_scene = get_tree().root.get_child(2)

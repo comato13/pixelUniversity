@@ -173,5 +173,6 @@ func _input(event):
 			update_interact_prompt()
 
 	elif event.is_action_pressed("inventory_toggle"):
-		inventory.visible = not inventory.visible
+		# Tell the inventory manager to toggle the inventory
+		Global.INV_manager.toggle_inventory(Global.PLAYER_INV_NAME)
 		update_interact_prompt()

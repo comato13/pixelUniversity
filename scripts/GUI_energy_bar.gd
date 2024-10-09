@@ -24,7 +24,7 @@ func update_energy(change: float = 0.0) -> void:
 
 	# Resize the energy bar based on the energy level
 	var barPixels = int(energy * BAR_WIDTH) + 1
-	barMiddle.scale.x = barPixels * 0.5
+	barMiddle.scale.x = barPixels
 	barEnd.position.x = barPixels
 
 	# Show/hide the energy bar when energy is low
@@ -34,14 +34,14 @@ func update_energy(change: float = 0.0) -> void:
 
 	# set the color of the energy bar based on the energy level
 	if energy < 1.0/3.0:
-		barStart.region_rect = Rect2(638, 778, 2, 12)
-		barMiddle.region_rect = Rect2(640, 778, 2, 12)
-		barEnd.region_rect = Rect2(670, 778, 4, 12)
+		barStart.region_rect = Rect2(319, 389, 1, 6)
+		barMiddle.region_rect = Rect2(320, 389, 1, 6)
+		barEnd.region_rect = Rect2(335, 389, 2, 6)
 	elif energy < 2.0/3.0:
-		barStart.region_rect = Rect2(638, 810, 2, 12)
-		barMiddle.region_rect = Rect2(640, 810, 2, 12)
-		barEnd.region_rect = Rect2(670, 810, 4, 12)
+		barStart.region_rect = Rect2(319, 405, 1, 6)
+		barMiddle.region_rect = Rect2(320, 405, 1, 6)
+		barEnd.region_rect = Rect2(335, 405, 2, 6)
 	else:
-		barStart.region_rect = Rect2(542, 810, 2, 12)
-		barMiddle.region_rect = Rect2(560, 810, 2, 12)
-		barEnd.region_rect = Rect2(574, 810, 4, 12)
+		barStart.region_rect = Rect2(271, 405, 1, 6)
+		barMiddle.region_rect = Rect2(280, 405, 1, 6)
+		barEnd.region_rect = Rect2(287, 405, 2, 6)

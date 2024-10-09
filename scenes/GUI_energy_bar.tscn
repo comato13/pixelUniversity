@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/GUI_energy_bar.gd" id="1_i3b2v"]
 [ext_resource type="AudioStream" uid="uid://ce4le5mt4gnto" path="res://assets/audio/pickupCoin.wav" id="2_xvxna"]
-[ext_resource type="TileSet" uid="uid://ba6wenstgktss" path="res://assets/UI/modernuserinterface-win/16x16/UI_tileset.tres" id="3_nkj4k"]
-[ext_resource type="Texture2D" uid="uid://b37fsuke44iqj" path="res://assets/UI/modernuserinterface-win/32x32/Modern_UI_Style_2_32x32.png" id="6_wwm5a"]
+[ext_resource type="TileSet" uid="uid://dswxsjjx764lw" path="res://assets/UI/UI_tileset.tres" id="3_auxst"]
+[ext_resource type="Texture2D" uid="uid://cisg2ff78o4py" path="res://assets/UI/Modern_UI_Style_2.png" id="4_kyenq"]
 
 [node name="GuiEnergyBar" type="Control"]
 process_mode = 3
@@ -23,39 +23,35 @@ bus = &"Sfx"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-15, 0)
-tile_map_data = PackedByteArray("AAAFAAAAAAARABgAAAACAAAAAAARABgAAAADAAAAAAARABgAAAAEAAAAAAARABgAAAAGAAAAAAASABgAAAABAAAAAAAQABgAAAA=")
-tile_set = ExtResource("3_nkj4k")
+tile_map_data = PackedByteArray("AAAFAAAAGwARABgAAAACAAAAGwARABgAAAADAAAAGwARABgAAAAEAAAAGwARABgAAAAGAAAAGwASABgAAAABAAAAGwAQABgAAAA=")
+tile_set = ExtResource("3_auxst")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6, 8)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_wwm5a")
+texture = ExtResource("4_kyenq")
 offset = Vector2(0.5, 0.5)
 region_enabled = true
-region_rect = Rect2(328, 324, 18, 26)
+region_rect = Rect2(164, 162, 9, 13)
 
 [node name="Bar" type="Node2D" parent="."]
 position = Vector2(16, 5)
 
 [node name="Start" type="Sprite2D" parent="Bar"]
 position = Vector2(0, 3)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_wwm5a")
+texture = ExtResource("4_kyenq")
 offset = Vector2(0.5, 0)
 region_enabled = true
-region_rect = Rect2(542, 810, 2, 12)
+region_rect = Rect2(271, 405, 1, 6)
 
 [node name="Middle" type="Sprite2D" parent="Bar"]
 position = Vector2(1, 3)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_wwm5a")
+texture = ExtResource("4_kyenq")
 offset = Vector2(0.5, 0)
 region_enabled = true
-region_rect = Rect2(560, 810, 2, 12)
+region_rect = Rect2(272, 405, 1, 6)
 
 [node name="End" type="Sprite2D" parent="Bar"]
 position = Vector2(66, 3)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_wwm5a")
+texture = ExtResource("4_kyenq")
 region_enabled = true
-region_rect = Rect2(574, 810, 4, 12)
+region_rect = Rect2(287, 405, 2, 6)
