@@ -2,7 +2,7 @@ extends Control
 
 # Load the scenes
 #var levelOne = preload("res://scenes/levelOne.tscn")
-var levelTwo = preload("res://scenes/levelTwo.tscn")
+var levelTwo = preload("res://scenes/mainLevel.tscn")
 var setting_scene = preload("res://scenes/setting.tscn")
 
 # Called when the node enters the scene tree for the first time.

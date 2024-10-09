@@ -14,15 +14,19 @@ const ANIM_SPEED_LOW  = 0.5
 const ANIM_SPEED_MED  = 1.0
 const ANIM_SPEED_HIGH = 1.5
 
-const WALKER_SPEED_LOW  = 20
+const WALKER_SPEED_LOW  = 35
 const WALKER_SPEED_MED  = 50
 const WALKER_SPEED_HIGH = 90
+
+const ATTEMPT_COST = -4000
+const RESPAWN_POINT = Vector2(55, 105)
 
 var set_animation = "Animation1Right"
 var set_speed = 0
 var set_loc_x = 0
 var set_loc_y = 0
 var set_dir = 0
+var ghost_mode = false
 
 func _ready() -> void:
 	sprite.play(set_animation + ("Left" if set_dir == -1 else "Right"))
@@ -52,5 +56,27 @@ func _process(_delta: float) -> void:
 
 
 func _on_reset_level_body_entered(body: Node2D) -> void:
+	# Ignore collisions if in ghost mode
+	if ghost_mode:
+		return
+
+	# Delete the walker
+	queue_free()
+
+	# Add debt to the player
+	Global.GUI_manager.update_debt(ATTEMPT_COST)
+
+	# Ghost all walkers to avoid double collisions
+	var walkers = get_tree().current_scene.get_node("walkers")
+	if !walkers:
+		return
+	for walker in walkers.get_children():
+		walker.ghost_mode = true
+
+	# Respawn the player at the starting position
 	var reset_level = load("res://scenes/ltb.tscn")
-	LogoTransition.change_scene(reset_level, false)
+	LogoTransition.change_scene(reset_level, false, false, true, RESPAWN_POINT)
+
+	# # Unghost all walkers
+	# for walker in walkers.get_children():
+	# 	walker.ghost_mode = false

@@ -56,25 +56,34 @@ const SPAWN_LOC_FREQ = [
 	SPAWN_FREQ_HIGH,
 ]
 
+var walkers
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Spawn the trophy if it doesn't exist
 	call_deferred("spawn_trophy")
+	
+	# Initialize the walkers node
+	walkers = $walkers
 
 func spawn_trophy() -> void:
-	# Spawn trophy -----------------------------------
-	
-	# Instance the item scene
-	var newWorldItem = worldItemScene.instantiate()
-	
-	# Get the item data from the global item manager
-	var itemData = Global.items["Trophy"]
-	newWorldItem.setup_item(itemData, 1)
 	
 	# Add the item to the current scene
-	get_tree().current_scene.add_child(newWorldItem)
+	if !get_tree().current_scene.has_node("Trophy"):
+		# Spawn trophy -----------------------------------
 	
-	# Set the item's position in the Global scene
-	newWorldItem.global_position = Vector2(65, -329)
+		# Instance the item scene
+		var newWorldItem = worldItemScene.instantiate()
+		
+		# Get the item data from the global item manager
+		var itemData = Global.items["Trophy"]
+		newWorldItem.setup_item(itemData, 1)
+		newWorldItem.name = "Trophy"
+		
+		get_tree().current_scene.add_child(newWorldItem)
+	
+		# Set the item's position in the Global scene
+		newWorldItem.global_position = Vector2(65, -329)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -96,4 +105,4 @@ func _on_spawn_timer_timeout() -> void:
 				(1 if SPAWN_LOC_X[i] == SPAWN_LOC_LEFT else -1)
 			)
 			
-			add_child(walker)
+			walkers.add_child(walker)
