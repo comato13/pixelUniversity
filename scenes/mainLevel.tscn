@@ -19,10 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://bde61bg8mp3t2" path="res://scenes/npc_16.tscn" id="158_tnwte"]
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="159_gulm0"]
 [ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="160_vhcc5"]
-[ext_resource type="Script" path="res://scenes/sign_ltb.gd" id="161_3blt4"]
+[ext_resource type="Script" path="res://scripts/sign_ltb.gd" id="161_3blt4"]
 [ext_resource type="Texture2D" uid="uid://0dsylvnrorpu" path="res://assets/graphic/signboard.png" id="162_m3lnb"]
 [ext_resource type="PackedScene" uid="uid://2h6bq0glb6fr" path="res://scenes/LTB_sign.tscn" id="163_bf0wa"]
-[ext_resource type="Script" path="res://scenes/bus_to_class.gd" id="164_283hg"]
+[ext_resource type="Script" path="res://scripts/bus_to_class.gd" id="164_283hg"]
 [ext_resource type="PackedScene" uid="uid://d3flrmed2y1b0" path="res://scenes/npc_17.tscn" id="165_yn5sr"]
 
 [sub_resource type="Curve2D" id="Curve2D_k6x75"]
@@ -81,6 +81,7 @@ rotates = false
 script = ExtResource("164_283hg")
 
 [node name="npc_17" parent="NPCs/Path2D/BusToClass" instance=ExtResource("165_yn5sr")]
+SPEED = 30.0
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("145_fqo1y")]
 visible = false
@@ -148,6 +149,7 @@ target_scene_path = "res://scenes/ltb.tscn"
 target_position = Vector2(55, 105)
 
 [node name="DoorLTB2" parent="Doors" instance=ExtResource("160_vhcc5")]
+visible = false
 position = Vector2(592, 343)
 target_scene_path = "res://scenes/ltb.tscn"
 target_position = Vector2(55, 105)
@@ -157,6 +159,17 @@ visible = false
 position = Vector2(627, -138)
 target_scene_path = "res://scenes/flappybird.tscn"
 target_position = Vector2(200, 0)
+keep_player = false
+
+[node name="DoorMarket2" parent="Doors" instance=ExtResource("160_vhcc5")]
+position = Vector2(97, -216)
+target_scene_path = "res://scenes/market1.tscn"
+target_position = Vector2(55, 105)
+
+[node name="DoorMarket1" parent="Doors" instance=ExtResource("160_vhcc5")]
+position = Vector2(-30, -217)
+target_scene_path = "res://scenes/market1.tscn"
+target_position = Vector2(55, 105)
 
 [node name="Signs" type="Node" parent="."]
 

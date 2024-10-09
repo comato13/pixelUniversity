@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw4vepf3x3g5g"]
 
-[ext_resource type="Script" path="res://scenes/ground_flappy.gd" id="1_71f7o"]
+[ext_resource type="Script" path="res://scripts/ground_flappy.gd" id="1_71f7o"]
 [ext_resource type="Texture2D" uid="uid://b5jilqhav8tbt" path="res://assets/graphic/groundwater.png" id="2_2o2hn"]
 [ext_resource type="Texture2D" uid="uid://00lrahkaeit4" path="res://assets/graphic/cloud1.png" id="3_e2x13"]
 

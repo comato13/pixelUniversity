@@ -3,6 +3,7 @@ class_name Door
 
 @export var target_scene_path: String # Path to the scene to transition to
 @export var target_position: Vector2 # Position to place the player in the new scene
+@export var keep_player: bool = true # Flag to indicate if the target scene is not a player scene
 
 func _ready() -> void:
 	# Optional: Ensure necessary attributes are set
@@ -29,7 +30,7 @@ func transition():
 		var target_scene = ResourceLoader.load(target_scene_path)
 		if target_scene:
 			is_valid_scene = true
-			LogoTransition.change_scene(target_scene, false, false, true, target_position)	
+			LogoTransition.change_scene(target_scene, false, false, keep_player, target_position)	
 
 	# Check if target_scene is valid
 	if !is_valid_scene:
