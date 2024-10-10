@@ -1,7 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://d3flrmed2y1b0"]
+[gd_scene load_steps=31 format=3 uid="uid://d3flrmed2y1b0"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_nf7jc"]
 [ext_resource type="Texture2D" uid="uid://dr0kjiir83mw0" path="res://assets/tiles/Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Alex_run_16x16.png" id="2_5drqe"]
+[ext_resource type="Texture2D" uid="uid://c3iou5204uf4g" path="res://assets/graphic/chatbubble/bubblelate.png" id="3_ebmkg"]
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="4_05ahn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbdmy"]
 atlas = ExtResource("2_5drqe")
@@ -208,3 +210,9 @@ autoplay = "RunRight"
 [node name="Npc17CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_wamjx")
+
+[node name="Bubblelate" type="Sprite2D" parent="."]
+position = Vector2(20, -15)
+scale = Vector2(0.0673958, 0.0673958)
+texture = ExtResource("3_ebmkg")
+script = ExtResource("4_05ahn")

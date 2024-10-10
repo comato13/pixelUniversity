@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://dwbyhkf1fx087"]
+[gd_scene load_steps=28 format=4 uid="uid://dwbyhkf1fx087"]
 
 [ext_resource type="TileSet" uid="uid://bagdldp8yjg7n" path="res://assets/tiles/baseTileset.tres" id="1_f2ro5"]
 [ext_resource type="TileSet" uid="uid://bdk8xdmgf4rho" path="res://assets/tiles/walkableTileset.tres" id="2_splls"]
 [ext_resource type="TileSet" uid="uid://byj2o654j0fga" path="res://assets/tiles/obstructionTileset.tres" id="3_l4dvo"]
+[ext_resource type="Script" path="res://scenes/signs.gd" id="22_1rc40"]
+[ext_resource type="PackedScene" uid="uid://csdtx51lej2v0" path="res://scenes/MonashCentreSign.tscn" id="25_8t186"]
 [ext_resource type="PackedScene" uid="uid://cc73ov3iyub4s" path="res://scenes/npc_1.tscn" id="145_fqo1y"]
 [ext_resource type="PackedScene" uid="uid://r7y4qxpfbk36" path="res://scenes/npc_2.tscn" id="146_igo2f"]
 [ext_resource type="PackedScene" uid="uid://cwsy0fkejyuss" path="res://scenes/npc_9.tscn" id="147_epc8w"]
@@ -19,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bde61bg8mp3t2" path="res://scenes/npc_16.tscn" id="158_tnwte"]
 [ext_resource type="PackedScene" uid="uid://dgep38ucrgyhn" path="res://scenes/player.tscn" id="159_gulm0"]
 [ext_resource type="PackedScene" uid="uid://bts25ux4ijpq" path="res://scenes/door.tscn" id="160_vhcc5"]
-[ext_resource type="Script" path="res://scripts/sign_ltb.gd" id="161_3blt4"]
 [ext_resource type="Texture2D" uid="uid://0dsylvnrorpu" path="res://assets/graphic/signboard.png" id="162_m3lnb"]
 [ext_resource type="PackedScene" uid="uid://2h6bq0glb6fr" path="res://scenes/LTB_sign.tscn" id="163_bf0wa"]
 [ext_resource type="Script" path="res://scripts/bus_to_class.gd" id="164_283hg"]
@@ -31,8 +32,8 @@ _data = {
 }
 point_count = 67
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx0vp"]
-size = Vector2(41.9048, 54.4762)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktjix"]
+radius = 23.0217
 
 [node name="mainLevel" type="Node"]
 
@@ -81,7 +82,6 @@ rotates = false
 script = ExtResource("164_283hg")
 
 [node name="npc_17" parent="NPCs/Path2D/BusToClass" instance=ExtResource("165_yn5sr")]
-SPEED = 30.0
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("145_fqo1y")]
 position = Vector2(142, 309)
@@ -172,26 +172,42 @@ position = Vector2(-30, -217)
 target_scene_path = "res://scenes/market.tscn"
 target_position = Vector2(272, -45)
 
-[node name="Signs" type="Node" parent="."]
+[node name="LTBsign" type="Area2D" parent="."]
+script = ExtResource("22_1rc40")
 
-[node name="SignLTB" type="Area2D" parent="Signs"]
-collision_layer = 8
-collision_mask = 8
-script = ExtResource("161_3blt4")
+[node name="Sign" parent="LTBsign" instance=ExtResource("163_bf0wa")]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Signs/SignLTB"]
-position = Vector2(255, 370)
-scale = Vector2(0.477273, 0.477273)
-shape = SubResource("RectangleShape2D_gx0vp")
-
-[node name="SignboardLTB" type="Sprite2D" parent="Signs/SignLTB"]
-position = Vector2(255, 370)
+[node name="SignboardLTB" type="Sprite2D" parent="LTBsign"]
+position = Vector2(232, 375)
 scale = Vector2(0.477273, 0.477273)
 texture = ExtResource("162_m3lnb")
 
-[node name="LTBSign" parent="Signs/SignLTB" instance=ExtResource("163_bf0wa")]
+[node name="Area2D" type="Area2D" parent="LTBsign"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LTBsign/Area2D"]
+position = Vector2(233, 374)
+shape = SubResource("CircleShape2D_ktjix")
+
+[node name="MonashCentresign" type="Area2D" parent="."]
+position = Vector2(-46, -576)
+script = ExtResource("22_1rc40")
+
+[node name="Sign" parent="MonashCentresign" instance=ExtResource("25_8t186")]
 visible = false
 
-[connection signal="body_entered" from="Signs/SignLTB" to="Signs/SignLTB" method="_on_body_entered"]
-[connection signal="body_exited" from="Signs/SignLTB" to="Signs/SignLTB" method="_on_body_exited"]
-[connection signal="ready" from="Signs/SignLTB" to="Signs/SignLTB" method="_on_ready"]
+[node name="SignboardLTB" type="Sprite2D" parent="MonashCentresign"]
+position = Vector2(232, 375)
+scale = Vector2(0.477273, 0.477273)
+texture = ExtResource("162_m3lnb")
+
+[node name="Area2D" type="Area2D" parent="MonashCentresign"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonashCentresign/Area2D"]
+position = Vector2(233, 374)
+shape = SubResource("CircleShape2D_ktjix")
+
+[connection signal="body_entered" from="LTBsign/Area2D" to="LTBsign" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="LTBsign/Area2D" to="LTBsign" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="MonashCentresign/Area2D" to="MonashCentresign" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MonashCentresign/Area2D" to="MonashCentresign" method="_on_area_2d_body_exited"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://devyfjr8b08mk"]
+[gd_scene load_steps=31 format=3 uid="uid://devyfjr8b08mk"]
 
 [ext_resource type="Texture2D" uid="uid://b6tjtpkenpnb2" path="res://assets/tiles/modernexteriors-win/Modern_Exteriors_32x32/Character_Generator_Addons_32x32/Characters_32x32/Modern_Exteriors_Characters_Swimmers_32x32.png" id="1_a0m5g"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_ror5p"]
+[ext_resource type="Texture2D" uid="uid://dolj5b536ujm4" path="res://assets/graphic/chatbubble/bubblegeneric5.png" id="3_ik7ea"]
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="4_0hukg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1geq"]
 atlas = ExtResource("1_a0m5g")
@@ -209,3 +211,9 @@ autoplay = "IdleDown"
 [node name="Npc11CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_8ms1w")
+
+[node name="Bubblegeneric5" type="Sprite2D" parent="."]
+position = Vector2(47, -94)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("3_ik7ea")
+script = ExtResource("4_0hukg")

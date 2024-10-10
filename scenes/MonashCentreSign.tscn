@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://csdtx51lej2v0"]
+
+[ext_resource type="Texture2D" uid="uid://b2h6qjh57p6rs" path="res://assets/graphic/popup-export.png" id="1_osyy7"]
+[ext_resource type="Theme" uid="uid://vc8iav51k4do" path="res://assets/graphic/pixelTheme.tres" id="2_cvm6x"]
+
+[node name="MonashCentreSign" type="CanvasLayer"]
+
+[node name="Popup-export" type="Sprite2D" parent="."]
+position = Vector2(158, 89)
+scale = Vector2(3.37879, 2.25397)
+texture = ExtResource("1_osyy7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 80.0
+offset_top = 28.0
+offset_right = 715.0
+offset_bottom = 512.0
+scale = Vector2(0.26, 0.26)
+theme = ExtResource("2_cvm6x")
+bbcode_enabled = true
+text = "Check out some of the great things Monash has to offer. We run events and activities all year round with plenty of opportunities for you to get involved on campus."
+fit_content = true
+tab_size = 1

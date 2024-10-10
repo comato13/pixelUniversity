@@ -5,3 +5,6 @@ extends PathFollow2D
 
 func _process(delta: float) -> void:
 	set_progress(get_progress() + runSpeed * delta)
+
+func _ready() -> void:
+	runSpeed = get_child(0).SPEED
