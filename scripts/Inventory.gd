@@ -5,7 +5,7 @@ class_name Inventory
 var ItemScene = preload("res://scenes/UI_item.tscn")
 
 # Signals
-# signal item_dropped(_itemData: Global.ItemData, count: int)
+signal item_dropped(_itemData: Global.ItemData, count: int)
 
 # UI Elements
 var control
@@ -143,3 +143,4 @@ func _on_drop_item_pressed():
 
 func _on_exit_pressed():
 	self.visible = false
+	Global.INV_manager.shown_inv = ""

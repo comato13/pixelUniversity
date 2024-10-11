@@ -1,33 +1,33 @@
 [gd_scene load_steps=17 format=4]
 
-[ext_resource type="Script" path="res://scripts/INV_manager.gd" id="1_d2qa8"]
-[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="2_2cxre"]
-[ext_resource type="Script" path="res://scripts/Inventory.gd" id="3_86ho1"]
-[ext_resource type="TileSet" path="res://assets/UI/UI_tileset.tres" id="4_j8jxt"]
-[ext_resource type="FontFile" path="res://assets/fonts/8-bit Arcade In.ttf" id="5_eudqt"]
-[ext_resource type="Texture2D" path="res://assets/UI/Modern_UI_Style_2.png" id="6_awxct"]
-[ext_resource type="Texture2D" path="res://assets/UI/LongButton.png" id="7_6qerh"]
-[ext_resource type="FontFile" path="res://assets/fonts/m3x6.ttf" id="8_myhgv"]
-[ext_resource type="Theme" path="res://themes/scrollBarTheme.tres" id="9_8gv04"]
-[ext_resource type="PackedScene" path="res://scenes/UI_item.tscn" id="10_ejgke"]
-[ext_resource type="Script" path="res://scripts/UI_Item.gd" id="11_8sdy4"]
-[ext_resource type="Texture2D" path="res://assets/UI/ItemFrame.png" id="12_hxjih"]
-[ext_resource type="Texture2D" path="res://assets/items/pixel_items_16x16.png" id="13_tfw07"]
-[ext_resource type="FontFile" path="res://assets/fonts/reppixel.ttf" id="14_qhyvi"]
-[ext_resource type="Theme" path="res://themes/ItemButtonTheme.tres" id="15_4q6lg"]
+[ext_resource type="Script" path="res://scripts/INV_manager.gd" id="1_ikc8x"]
+[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="2_ovi2h"]
+[ext_resource type="Script" path="res://scripts/Inventory.gd" id="3_k5054"]
+[ext_resource type="TileSet" path="res://assets/UI/UI_tileset.tres" id="4_axw7l"]
+[ext_resource type="FontFile" path="res://assets/fonts/8-bit Arcade In.ttf" id="5_c4vs6"]
+[ext_resource type="Texture2D" path="res://assets/UI/Modern_UI_Style_2.png" id="6_txmac"]
+[ext_resource type="Texture2D" path="res://assets/UI/LongButton.png" id="7_fy6wf"]
+[ext_resource type="FontFile" path="res://assets/fonts/m3x6.ttf" id="8_5oen5"]
+[ext_resource type="Theme" path="res://themes/scrollBarTheme.tres" id="9_35pll"]
+[ext_resource type="PackedScene" path="res://scenes/UI_item.tscn" id="10_w4dn7"]
+[ext_resource type="Script" path="res://scripts/UI_Item.gd" id="11_j2l41"]
+[ext_resource type="Texture2D" path="res://assets/UI/ItemFrame.png" id="12_o8g8k"]
+[ext_resource type="Texture2D" path="res://assets/items/pixel_items_16x16.png" id="13_lf16f"]
+[ext_resource type="FontFile" path="res://assets/fonts/reppixel.ttf" id="14_mgg36"]
+[ext_resource type="Theme" path="res://themes/ItemButtonTheme.tres" id="15_mggta"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulylt"]
-atlas = ExtResource("6_awxct")
+atlas = ExtResource("6_txmac")
 region = Rect2(164, 356, 9, 9)
 
 [node name="INV_manager" type="Node2D"]
-script = ExtResource("1_d2qa8")
+script = ExtResource("1_ikc8x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Backpack Inventory" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_2cxre")]
+[node name="Backpack Inventory" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_ovi2h")]
 visible = false
-script = ExtResource("3_86ho1")
+script = ExtResource("3_k5054")
 
 [node name="Control" type="Control" parent="CanvasLayer/Backpack Inventory"]
 texture_filter = 1
@@ -40,7 +40,7 @@ offset_bottom = 157.0
 
 [node name="UITileMapLayer" type="TileMapLayer" parent="CanvasLayer/Backpack Inventory/Control"]
 tile_map_data = PackedByteArray("AAABAAIAGgAOAAIAAAACAAIAGgASAAIAAAADAAIAGgASAAIAAAAEAAIAGgASAAIAAAAFAAIAGgASAAIAAAAGAAIAGgATAAIAAAABAAMAGgAOAAMAAAABAAQAGgAOAAMAAAABAAUAGgAOAAMAAAABAAYAGgAOAAMAAAACAAMAGgASAAQAAAACAAQAGgASAAQAAAACAAUAGgASAAQAAAACAAYAGgASAAQAAAADAAMAGgASAAQAAAADAAQAGgASAAQAAAADAAUAGgASAAQAAAADAAYAGgASAAQAAAAEAAMAGgASAAQAAAAEAAQAGgASAAQAAAAEAAUAGgASAAQAAAAEAAYAGgASAAQAAAAFAAMAGgASAAQAAAAFAAQAGgASAAQAAAAFAAUAGgASAAQAAAAFAAYAGgASAAQAAAAGAAMAGgATAAUAAAAGAAQAGgATAAUAAAAGAAUAGgATAAUAAAAGAAYAGgATAAUAAAABAAcAGgAOAAcAAAACAAcAGgARAAcAAAADAAcAGgARAAcAAAAEAAcAGgARAAcAAAAFAAcAGgARAAcAAAAGAAcAGgATAAcAAAAAAAAAGgAaAAQAAAAAAAEAGgAaAAUAAAABAAAAGgAbAAQAAAABAAEAGgAbAAUAAAACAAAAGgAcAAQAAAACAAEAGgAcAAUAAAADAAAAGgAcAAQAAAADAAEAGgAcAAUAAAAEAAAAGgAcAAQAAAAEAAEAGgAcAAUAAAAFAAAAGgAcAAQAAAAFAAEAGgAcAAUAAAAGAAAAGgAcAAQAAAAGAAEAGgAcAAUAAAAHAAEAGgAcAAUAAAAIAAAAGgAcAAQAAAAIAAEAGgAcAAUAAAAJAAAAGgAeAAQAAAAJAAEAGgAeAAUAAAAKAAAAGgAfAAQAAAAKAAEAGgAfAAUAAAAHAAAAGgAcAAQAAAA=")
-tile_set = ExtResource("4_j8jxt")
+tile_set = ExtResource("4_axw7l")
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control"]
 z_index = 1
@@ -50,7 +50,7 @@ offset_top = 8.0
 offset_right = 158.0
 offset_bottom = 22.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_eudqt")
+theme_override_fonts/normal_font = ExtResource("5_c4vs6")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]Backpack Inventory[/center]"
@@ -72,7 +72,7 @@ offset_left = 114.0
 offset_top = 32.0
 offset_right = 162.0
 offset_bottom = 44.0
-texture = ExtResource("7_6qerh")
+texture = ExtResource("7_fy6wf")
 
 [node name="UseButton" type="Button" parent="CanvasLayer/Backpack Inventory/Control"]
 layout_mode = 0
@@ -82,7 +82,7 @@ offset_right = 160.0
 offset_bottom = 47.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
+theme_override_fonts/font = ExtResource("8_5oen5")
 theme_override_font_sizes/font_size = 16
 text = "Use Item"
 flat = true
@@ -93,7 +93,7 @@ offset_left = 114.0
 offset_top = 49.0
 offset_right = 162.0
 offset_bottom = 61.0
-texture = ExtResource("7_6qerh")
+texture = ExtResource("7_fy6wf")
 
 [node name="DropButton" type="Button" parent="CanvasLayer/Backpack Inventory/Control"]
 layout_mode = 0
@@ -103,7 +103,7 @@ offset_right = 162.0
 offset_bottom = 64.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
+theme_override_fonts/font = ExtResource("8_5oen5")
 theme_override_font_sizes/font_size = 16
 text = "Drop Item"
 flat = true
@@ -114,7 +114,7 @@ offset_left = 19.0
 offset_top = 36.0
 offset_right = 108.0
 offset_bottom = 124.0
-theme = ExtResource("9_8gv04")
+theme = ExtResource("9_35pll")
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer"]
@@ -130,18 +130,18 @@ theme_override_constants/h_separation = 21
 theme_override_constants/v_separation = 21
 columns = 4
 
-[node name="Control" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
+[node name="Control" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
 texture_filter = 1
 layout_mode = 2
-script = ExtResource("11_8sdy4")
+script = ExtResource("11_j2l41")
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
 position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
+texture = ExtResource("12_o8g8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
 position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
+texture = ExtResource("13_lf16f")
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 
@@ -151,9 +151,9 @@ offset_top = 11.0
 offset_right = 16.0
 offset_bottom = 20.0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
 theme_override_font_sizes/normal_font_size = 5
-text = "2"
+text = "1"
 scroll_active = false
 
 [node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
@@ -163,1757 +163,185 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
+theme = ExtResource("15_mggta")
 flat = true
 
-[node name="@Control@74" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
+[node name="@Control@69" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
 texture_filter = 1
 layout_mode = 2
-script = ExtResource("11_8sdy4")
+script = ExtResource("11_j2l41")
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@74"]
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@69"]
 position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
+texture = ExtResource("12_o8g8k")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@74"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@69"]
 position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
+texture = ExtResource("13_lf16f")
 region_enabled = true
 region_rect = Rect2(80, 97, 16, 16)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@74"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@69"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 16.0
 offset_bottom = 20.0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
 theme_override_font_sizes/normal_font_size = 5
-text = "1"
+text = "10"
 scroll_active = false
 
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@74"]
+[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@69"]
 z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
+theme = ExtResource("15_mggta")
 flat = true
 
-[node name="@Control@76" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
+[node name="@Control@71" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
 texture_filter = 1
 layout_mode = 2
-script = ExtResource("11_8sdy4")
+script = ExtResource("11_j2l41")
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@76"]
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@71"]
 position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
+texture = ExtResource("12_o8g8k")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@76"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@71"]
 position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
+texture = ExtResource("13_lf16f")
 region_enabled = true
 region_rect = Rect2(80, 33, 16, 16)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@76"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@71"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 16.0
 offset_bottom = 20.0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
+theme_override_font_sizes/normal_font_size = 5
+text = "7"
+scroll_active = false
+
+[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@71"]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme = ExtResource("15_mggta")
+flat = true
+
+[node name="@Control@73" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
+texture_filter = 1
+layout_mode = 2
+script = ExtResource("11_j2l41")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@73"]
+position = Vector2(8, 8)
+texture = ExtResource("12_o8g8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@73"]
+position = Vector2(8, 8)
+texture = ExtResource("13_lf16f")
+region_enabled = true
+region_rect = Rect2(80, 63, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@73"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 16.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
+theme_override_font_sizes/normal_font_size = 5
+text = "2"
+scroll_active = false
+
+[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@73"]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme = ExtResource("15_mggta")
+flat = true
+
+[node name="@Control@75" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
+texture_filter = 1
+layout_mode = 2
+script = ExtResource("11_j2l41")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@75"]
+position = Vector2(8, 8)
+texture = ExtResource("12_o8g8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@75"]
+position = Vector2(8, 8)
+texture = ExtResource("13_lf16f")
+region_enabled = true
+region_rect = Rect2(112, 15, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@75"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 16.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
 theme_override_font_sizes/normal_font_size = 5
 text = "8"
 scroll_active = false
 
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@76"]
+[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@75"]
 z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
+theme = ExtResource("15_mggta")
 flat = true
 
-[node name="@Control@78" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
+[node name="@Control@77" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_w4dn7")]
 texture_filter = 1
 layout_mode = 2
-script = ExtResource("11_8sdy4")
+script = ExtResource("11_j2l41")
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@78"]
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@77"]
 position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
+texture = ExtResource("12_o8g8k")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@78"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@77"]
 position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 63, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@78"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "10"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@78"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@80" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@80"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@80"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@80"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "4"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@80"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@82" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@82"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@82"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(112, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@82"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "4"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@82"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@84" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@84"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@84"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(0, 80, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@84"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "2"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@84"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@86" type="Control" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@86"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@86"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
+texture = ExtResource("13_lf16f")
 region_enabled = true
 region_rect = Rect2(64, 48, 16, 16)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@86"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@77"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 16.0
 offset_bottom = 20.0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "5"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@86"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@CanvasLayer@156" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_2cxre")]
-visible = false
-script = ExtResource("3_86ho1")
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@156"]
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 76.0
-offset_top = 26.0
-offset_right = 252.0
-offset_bottom = 157.0
-
-[node name="UITileMapLayer" type="TileMapLayer" parent="CanvasLayer/@CanvasLayer@156/Control"]
-tile_map_data = PackedByteArray("AAABAAIAGgAOAAIAAAACAAIAGgASAAIAAAADAAIAGgASAAIAAAAEAAIAGgASAAIAAAAFAAIAGgASAAIAAAAGAAIAGgATAAIAAAABAAMAGgAOAAMAAAABAAQAGgAOAAMAAAABAAUAGgAOAAMAAAABAAYAGgAOAAMAAAACAAMAGgASAAQAAAACAAQAGgASAAQAAAACAAUAGgASAAQAAAACAAYAGgASAAQAAAADAAMAGgASAAQAAAADAAQAGgASAAQAAAADAAUAGgASAAQAAAADAAYAGgASAAQAAAAEAAMAGgASAAQAAAAEAAQAGgASAAQAAAAEAAUAGgASAAQAAAAEAAYAGgASAAQAAAAFAAMAGgASAAQAAAAFAAQAGgASAAQAAAAFAAUAGgASAAQAAAAFAAYAGgASAAQAAAAGAAMAGgATAAUAAAAGAAQAGgATAAUAAAAGAAUAGgATAAUAAAAGAAYAGgATAAUAAAABAAcAGgAOAAcAAAACAAcAGgARAAcAAAADAAcAGgARAAcAAAAEAAcAGgARAAcAAAAFAAcAGgARAAcAAAAGAAcAGgATAAcAAAAAAAAAGgAaAAQAAAAAAAEAGgAaAAUAAAABAAAAGgAbAAQAAAABAAEAGgAbAAUAAAACAAAAGgAcAAQAAAACAAEAGgAcAAUAAAADAAAAGgAcAAQAAAADAAEAGgAcAAUAAAAEAAAAGgAcAAQAAAAEAAEAGgAcAAUAAAAFAAAAGgAcAAQAAAAFAAEAGgAcAAUAAAAGAAAAGgAcAAQAAAAGAAEAGgAcAAUAAAAHAAEAGgAcAAUAAAAIAAAAGgAcAAQAAAAIAAEAGgAcAAUAAAAJAAAAGgAeAAQAAAAJAAEAGgAeAAUAAAAKAAAAGgAfAAQAAAAKAAEAGgAfAAUAAAAHAAAAGgAcAAQAAAA=")
-tile_set = ExtResource("4_j8jxt")
-
-[node name="Title" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control"]
-z_index = 1
-layout_mode = 0
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 158.0
-offset_bottom = 22.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_eudqt")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "[center]Backpack Inventory[/center]"
-
-[node name="ExitButton" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 3.0
-offset_right = 177.0
-offset_bottom = 20.0
-focus_mode = 0
-action_mode = 0
-icon = SubResource("AtlasTexture_ulylt")
-flat = true
-
-[node name="UseItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 32.0
-offset_right = 162.0
-offset_bottom = 44.0
-texture = ExtResource("7_6qerh")
-
-[node name="UseButton" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 26.0
-offset_right = 160.0
-offset_bottom = 47.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Use Item"
-flat = true
-
-[node name="DropItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 49.0
-offset_right = 162.0
-offset_bottom = 61.0
-texture = ExtResource("7_6qerh")
-
-[node name="DropButton" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 43.0
-offset_right = 162.0
-offset_bottom = 64.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Drop Item"
-flat = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/@CanvasLayer@156/Control"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 36.0
-offset_right = 108.0
-offset_bottom = 124.0
-theme = ExtResource("9_8gv04")
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 21
-theme_override_constants/v_separation = 21
-columns = 4
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 0, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
+theme_override_fonts/normal_font = ExtResource("14_mgg36")
 theme_override_font_sizes/normal_font_size = 5
 text = "7"
 scroll_active = false
 
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Backpack Inventory/Control/ScrollContainer/MarginContainer/GridContainer/@Control@77"]
 z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@145" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@145"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@145"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 97, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@145"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "4"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@145"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@147" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@147"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@147"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 33, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@147"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "2"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@147"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@149" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@149"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@149"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@149"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "9"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@149"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@151" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@151"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@151"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(112, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@151"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "7"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@151"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@153" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@153"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@153"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(0, 80, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@153"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "8"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@153"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@155" type="Control" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@155"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@155"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 48, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@155"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "7"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@156/Control/ScrollContainer/MarginContainer/GridContainer/@Control@155"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@CanvasLayer@258" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_2cxre")]
-visible = false
-script = ExtResource("3_86ho1")
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@258"]
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 76.0
-offset_top = 26.0
-offset_right = 252.0
-offset_bottom = 157.0
-
-[node name="UITileMapLayer" type="TileMapLayer" parent="CanvasLayer/@CanvasLayer@258/Control"]
-tile_map_data = PackedByteArray("AAABAAIAGgAOAAIAAAACAAIAGgASAAIAAAADAAIAGgASAAIAAAAEAAIAGgASAAIAAAAFAAIAGgASAAIAAAAGAAIAGgATAAIAAAABAAMAGgAOAAMAAAABAAQAGgAOAAMAAAABAAUAGgAOAAMAAAABAAYAGgAOAAMAAAACAAMAGgASAAQAAAACAAQAGgASAAQAAAACAAUAGgASAAQAAAACAAYAGgASAAQAAAADAAMAGgASAAQAAAADAAQAGgASAAQAAAADAAUAGgASAAQAAAADAAYAGgASAAQAAAAEAAMAGgASAAQAAAAEAAQAGgASAAQAAAAEAAUAGgASAAQAAAAEAAYAGgASAAQAAAAFAAMAGgASAAQAAAAFAAQAGgASAAQAAAAFAAUAGgASAAQAAAAFAAYAGgASAAQAAAAGAAMAGgATAAUAAAAGAAQAGgATAAUAAAAGAAUAGgATAAUAAAAGAAYAGgATAAUAAAABAAcAGgAOAAcAAAACAAcAGgARAAcAAAADAAcAGgARAAcAAAAEAAcAGgARAAcAAAAFAAcAGgARAAcAAAAGAAcAGgATAAcAAAAAAAAAGgAaAAQAAAAAAAEAGgAaAAUAAAABAAAAGgAbAAQAAAABAAEAGgAbAAUAAAACAAAAGgAcAAQAAAACAAEAGgAcAAUAAAADAAAAGgAcAAQAAAADAAEAGgAcAAUAAAAEAAAAGgAcAAQAAAAEAAEAGgAcAAUAAAAFAAAAGgAcAAQAAAAFAAEAGgAcAAUAAAAGAAAAGgAcAAQAAAAGAAEAGgAcAAUAAAAHAAEAGgAcAAUAAAAIAAAAGgAcAAQAAAAIAAEAGgAcAAUAAAAJAAAAGgAeAAQAAAAJAAEAGgAeAAUAAAAKAAAAGgAfAAQAAAAKAAEAGgAfAAUAAAAHAAAAGgAcAAQAAAA=")
-tile_set = ExtResource("4_j8jxt")
-
-[node name="Title" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control"]
-z_index = 1
-layout_mode = 0
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 158.0
-offset_bottom = 22.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_eudqt")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "[center]Backpack Inventory[/center]"
-
-[node name="ExitButton" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 3.0
-offset_right = 177.0
-offset_bottom = 20.0
-focus_mode = 0
-action_mode = 0
-icon = SubResource("AtlasTexture_ulylt")
-flat = true
-
-[node name="UseItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 32.0
-offset_right = 162.0
-offset_bottom = 44.0
-texture = ExtResource("7_6qerh")
-
-[node name="UseButton" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 26.0
-offset_right = 160.0
-offset_bottom = 47.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Use Item"
-flat = true
-
-[node name="DropItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 49.0
-offset_right = 162.0
-offset_bottom = 61.0
-texture = ExtResource("7_6qerh")
-
-[node name="DropButton" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 43.0
-offset_right = 162.0
-offset_bottom = 64.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Drop Item"
-flat = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/@CanvasLayer@258/Control"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 36.0
-offset_right = 108.0
-offset_bottom = 124.0
-theme = ExtResource("9_8gv04")
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 21
-theme_override_constants/v_separation = 21
-columns = 4
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 0, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "6"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@245" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@245"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@245"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 97, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@245"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "3"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@245"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@247" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@247"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@247"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 33, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@247"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "1"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@247"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@249" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@249"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@249"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 63, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@249"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "5"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@249"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@251" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@251"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@251"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@251"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "2"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@251"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@253" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@253"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@253"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(112, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@253"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "4"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@253"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@255" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@255"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@255"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(0, 80, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@255"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "9"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@255"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@257" type="Control" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@257"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@257"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 48, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@257"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "5"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@258/Control/ScrollContainer/MarginContainer/GridContainer/@Control@257"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@CanvasLayer@355" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_2cxre")]
-visible = false
-script = ExtResource("3_86ho1")
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@355"]
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 76.0
-offset_top = 26.0
-offset_right = 252.0
-offset_bottom = 157.0
-
-[node name="UITileMapLayer" type="TileMapLayer" parent="CanvasLayer/@CanvasLayer@355/Control"]
-tile_map_data = PackedByteArray("AAABAAIAGgAOAAIAAAACAAIAGgASAAIAAAADAAIAGgASAAIAAAAEAAIAGgASAAIAAAAFAAIAGgASAAIAAAAGAAIAGgATAAIAAAABAAMAGgAOAAMAAAABAAQAGgAOAAMAAAABAAUAGgAOAAMAAAABAAYAGgAOAAMAAAACAAMAGgASAAQAAAACAAQAGgASAAQAAAACAAUAGgASAAQAAAACAAYAGgASAAQAAAADAAMAGgASAAQAAAADAAQAGgASAAQAAAADAAUAGgASAAQAAAADAAYAGgASAAQAAAAEAAMAGgASAAQAAAAEAAQAGgASAAQAAAAEAAUAGgASAAQAAAAEAAYAGgASAAQAAAAFAAMAGgASAAQAAAAFAAQAGgASAAQAAAAFAAUAGgASAAQAAAAFAAYAGgASAAQAAAAGAAMAGgATAAUAAAAGAAQAGgATAAUAAAAGAAUAGgATAAUAAAAGAAYAGgATAAUAAAABAAcAGgAOAAcAAAACAAcAGgARAAcAAAADAAcAGgARAAcAAAAEAAcAGgARAAcAAAAFAAcAGgARAAcAAAAGAAcAGgATAAcAAAAAAAAAGgAaAAQAAAAAAAEAGgAaAAUAAAABAAAAGgAbAAQAAAABAAEAGgAbAAUAAAACAAAAGgAcAAQAAAACAAEAGgAcAAUAAAADAAAAGgAcAAQAAAADAAEAGgAcAAUAAAAEAAAAGgAcAAQAAAAEAAEAGgAcAAUAAAAFAAAAGgAcAAQAAAAFAAEAGgAcAAUAAAAGAAAAGgAcAAQAAAAGAAEAGgAcAAUAAAAHAAEAGgAcAAUAAAAIAAAAGgAcAAQAAAAIAAEAGgAcAAUAAAAJAAAAGgAeAAQAAAAJAAEAGgAeAAUAAAAKAAAAGgAfAAQAAAAKAAEAGgAfAAUAAAAHAAAAGgAcAAQAAAA=")
-tile_set = ExtResource("4_j8jxt")
-
-[node name="Title" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control"]
-z_index = 1
-layout_mode = 0
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 158.0
-offset_bottom = 22.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_eudqt")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "[center]Backpack Inventory[/center]"
-
-[node name="ExitButton" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 3.0
-offset_right = 177.0
-offset_bottom = 20.0
-focus_mode = 0
-action_mode = 0
-icon = SubResource("AtlasTexture_ulylt")
-flat = true
-
-[node name="UseItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 32.0
-offset_right = 162.0
-offset_bottom = 44.0
-texture = ExtResource("7_6qerh")
-
-[node name="UseButton" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 26.0
-offset_right = 160.0
-offset_bottom = 47.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Use Item"
-flat = true
-
-[node name="DropItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 49.0
-offset_right = 162.0
-offset_bottom = 61.0
-texture = ExtResource("7_6qerh")
-
-[node name="DropButton" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 43.0
-offset_right = 162.0
-offset_bottom = 64.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Drop Item"
-flat = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/@CanvasLayer@355/Control"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 36.0
-offset_right = 108.0
-offset_bottom = 124.0
-theme = ExtResource("9_8gv04")
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 21
-theme_override_constants/v_separation = 21
-columns = 4
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 0, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "10"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@342" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@342"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@342"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 97, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@342"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "5"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@342"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@344" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@344"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@344"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 33, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@344"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "1"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@344"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@346" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@346"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@346"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 63, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@346"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "2"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@346"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@348" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@348"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@348"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@348"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "7"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@348"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@350" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@350"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@350"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(112, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@350"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "7"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@350"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@352" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@352"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@352"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(0, 80, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@352"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "3"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@352"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@354" type="Control" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@354"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@354"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 48, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@354"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "4"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@355/Control/ScrollContainer/MarginContainer/GridContainer/@Control@354"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@CanvasLayer@423" type="CanvasLayer" parent="CanvasLayer" instance=ExtResource("2_2cxre")]
-visible = false
-script = ExtResource("3_86ho1")
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@423"]
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 76.0
-offset_top = 26.0
-offset_right = 252.0
-offset_bottom = 157.0
-
-[node name="UITileMapLayer" type="TileMapLayer" parent="CanvasLayer/@CanvasLayer@423/Control"]
-tile_map_data = PackedByteArray("AAABAAIAGgAOAAIAAAACAAIAGgASAAIAAAADAAIAGgASAAIAAAAEAAIAGgASAAIAAAAFAAIAGgASAAIAAAAGAAIAGgATAAIAAAABAAMAGgAOAAMAAAABAAQAGgAOAAMAAAABAAUAGgAOAAMAAAABAAYAGgAOAAMAAAACAAMAGgASAAQAAAACAAQAGgASAAQAAAACAAUAGgASAAQAAAACAAYAGgASAAQAAAADAAMAGgASAAQAAAADAAQAGgASAAQAAAADAAUAGgASAAQAAAADAAYAGgASAAQAAAAEAAMAGgASAAQAAAAEAAQAGgASAAQAAAAEAAUAGgASAAQAAAAEAAYAGgASAAQAAAAFAAMAGgASAAQAAAAFAAQAGgASAAQAAAAFAAUAGgASAAQAAAAFAAYAGgASAAQAAAAGAAMAGgATAAUAAAAGAAQAGgATAAUAAAAGAAUAGgATAAUAAAAGAAYAGgATAAUAAAABAAcAGgAOAAcAAAACAAcAGgARAAcAAAADAAcAGgARAAcAAAAEAAcAGgARAAcAAAAFAAcAGgARAAcAAAAGAAcAGgATAAcAAAAAAAAAGgAaAAQAAAAAAAEAGgAaAAUAAAABAAAAGgAbAAQAAAABAAEAGgAbAAUAAAACAAAAGgAcAAQAAAACAAEAGgAcAAUAAAADAAAAGgAcAAQAAAADAAEAGgAcAAUAAAAEAAAAGgAcAAQAAAAEAAEAGgAcAAUAAAAFAAAAGgAcAAQAAAAFAAEAGgAcAAUAAAAGAAAAGgAcAAQAAAAGAAEAGgAcAAUAAAAHAAEAGgAcAAUAAAAIAAAAGgAcAAQAAAAIAAEAGgAcAAUAAAAJAAAAGgAeAAQAAAAJAAEAGgAeAAUAAAAKAAAAGgAfAAQAAAAKAAEAGgAfAAUAAAAHAAAAGgAcAAQAAAA=")
-tile_set = ExtResource("4_j8jxt")
-
-[node name="Title" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control"]
-z_index = 1
-layout_mode = 0
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 158.0
-offset_bottom = 22.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_eudqt")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "[center]Backpack Inventory[/center]"
-
-[node name="ExitButton" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 3.0
-offset_right = 177.0
-offset_bottom = 20.0
-focus_mode = 0
-action_mode = 0
-icon = SubResource("AtlasTexture_ulylt")
-flat = true
-
-[node name="UseItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 32.0
-offset_right = 162.0
-offset_bottom = 44.0
-texture = ExtResource("7_6qerh")
-
-[node name="UseButton" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 26.0
-offset_right = 160.0
-offset_bottom = 47.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Use Item"
-flat = true
-
-[node name="DropItemTexture" type="TextureRect" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 49.0
-offset_right = 162.0
-offset_bottom = 61.0
-texture = ExtResource("7_6qerh")
-
-[node name="DropButton" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 43.0
-offset_right = 162.0
-offset_bottom = 64.0
-focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_myhgv")
-theme_override_font_sizes/font_size = 16
-text = "Drop Item"
-flat = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/@CanvasLayer@423/Control"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 36.0
-offset_right = 108.0
-offset_bottom = 124.0
-theme = ExtResource("9_8gv04")
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 21
-theme_override_constants/v_separation = 21
-columns = 4
-
-[node name="Control" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 0, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "10"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/Control"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@412" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@412"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@412"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 97, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@412"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "5"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@412"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@414" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@414"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@414"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(80, 63, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@414"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "6"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@414"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@416" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@416"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@416"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@416"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "6"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@416"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@418" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@418"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@418"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(112, 15, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@418"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "3"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@418"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@420" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@420"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@420"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(0, 80, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@420"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "10"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@420"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
-flat = true
-
-[node name="@Control@422" type="Control" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("10_ejgke")]
-texture_filter = 1
-layout_mode = 2
-script = ExtResource("11_8sdy4")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@422"]
-position = Vector2(8, 8)
-texture = ExtResource("12_hxjih")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@422"]
-position = Vector2(8, 8)
-texture = ExtResource("13_tfw07")
-region_enabled = true
-region_rect = Rect2(64, 48, 16, 16)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@422"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 16.0
-offset_bottom = 20.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("14_qhyvi")
-theme_override_font_sizes/normal_font_size = 5
-text = "10"
-scroll_active = false
-
-[node name="Button" type="Button" parent="CanvasLayer/@CanvasLayer@423/Control/ScrollContainer/MarginContainer/GridContainer/@Control@422"]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-theme = ExtResource("15_4q6lg")
+theme = ExtResource("15_mggta")
 flat = true

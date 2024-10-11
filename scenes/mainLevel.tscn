@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bdk8xdmgf4rho" path="res://assets/tiles/walkableTileset.tres" id="2_splls"]
 [ext_resource type="TileSet" uid="uid://byj2o654j0fga" path="res://assets/tiles/obstructionTileset.tres" id="3_l4dvo"]
 [ext_resource type="Script" path="res://scenes/signs.gd" id="22_1rc40"]
-[ext_resource type="PackedScene" uid="uid://csdtx51lej2v0" path="res://scenes/MonashCentreSign.tscn" id="25_8t186"]
+[ext_resource type="PackedScene" path="res://scenes/MonashCentreSign.tscn" id="25_8t186"]
 [ext_resource type="PackedScene" uid="uid://cc73ov3iyub4s" path="res://scenes/npc_1.tscn" id="145_fqo1y"]
 [ext_resource type="PackedScene" uid="uid://r7y4qxpfbk36" path="res://scenes/npc_2.tscn" id="146_igo2f"]
 [ext_resource type="PackedScene" uid="uid://cwsy0fkejyuss" path="res://scenes/npc_9.tscn" id="147_epc8w"]
