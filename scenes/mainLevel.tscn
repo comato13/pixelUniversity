@@ -176,7 +176,6 @@ target_position = Vector2(272, -45)
 visible = false
 position = Vector2(514, -709)
 target_scene_path = "res://scenes/multitasker.tscn"
-keep_player = false
 
 [node name="LTBsign" type="Area2D" parent="."]
 script = ExtResource("22_1rc40")
