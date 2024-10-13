@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc03w74gahs0t"]
+[gd_scene load_steps=19 format=3 uid="uid://dc03w74gahs0t"]
 
 [ext_resource type="Script" path="res://scripts/setting.gd" id="1_tpjvd"]
 [ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="1_wepn0"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ndtdjetnh2sx" path="res://assets/graphic/BugReport.png" id="14_123ar"]
 [ext_resource type="Texture2D" uid="uid://c1s1vgi2b80ex" path="res://assets/graphic/bugReportButton.png" id="15_oljyd"]
 [ext_resource type="Texture2D" uid="uid://c0tgbul76kq5v" path="res://assets/graphic/bugReportButtonClicked.png" id="16_yw3e0"]
+[ext_resource type="FontFile" uid="uid://cvb2h8roaxykm" path="res://assets/fonts/reppixel.ttf" id="17_pfrui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apox7"]
 shader = ExtResource("1_wepn0")
@@ -125,20 +126,62 @@ script = ExtResource("8_ojnie")
 bus_name = "Sfx"
 
 [node name="BugReport" type="Sprite2D" parent="."]
-position = Vector2(220, 109)
+position = Vector2(219.75, 116.75)
 scale = Vector2(0.183334, 0.183334)
 texture = ExtResource("14_123ar")
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 213.0
-offset_top = 116.0
-offset_right = 226.0
-offset_bottom = 130.0
+offset_left = 212.75
+offset_top = 123.75
+offset_right = 225.75
+offset_bottom = 137.75
 texture_normal = ExtResource("15_oljyd")
 texture_pressed = ExtResource("16_yw3e0")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="FPSSlider" type="HSlider" parent="."]
+modulate = Color(0.337255, 0.34902, 0.447059, 1)
+offset_left = 194.0
+offset_top = 63.0
+offset_right = 369.0
+offset_bottom = 79.0
+scale = Vector2(0.285, 0.285)
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("8_ojnie")
+bus_name = "Music"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 54.0
+offset_right = 229.0
+offset_bottom = 63.0
+theme_override_colors/default_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_fonts/normal_font = ExtResource("17_pfrui")
+theme_override_font_sizes/normal_font_size = 5
+text = "FPS"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 85.0
+offset_right = 256.0
+offset_bottom = 109.0
+scale = Vector2(0.5, 0.5)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 189.0
+offset_top = 84.0
+offset_right = 231.0
+offset_bottom = 99.0
+theme_override_colors/default_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_fonts/normal_font = ExtResource("17_pfrui")
+theme_override_font_sizes/normal_font_size = 5
+text = "COLOUR
+BLIND"
 
 [connection signal="pressed" from="ExitToMenu" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]

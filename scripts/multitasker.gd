@@ -7,6 +7,15 @@ func _ready():
 	var balancing_viewport = $SubViewportContainer1/SubViewport
 	var dodging_viewport = $SubViewportContainer2/SubViewport
 	var library_viewport = $SubViewportContainer3/SubViewport
+
+	# Find the existing player node
+	var player = get_node("player")
+
+	# Replace the player in each scene with the existing player
+	# balancing_viewport.get_node("player").replace_by(player)
+	# dodging_viewport.get_node("player").replace_by(player)
+	library_viewport.get_node("player").replace_by(player)
+
 	
 	## Load and instance each scene
 	#var balancing_scene = load("res://scenes/BalancingLevel.tscn").instantiate()

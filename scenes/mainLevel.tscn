@@ -74,6 +74,7 @@ collision_mask = 11
 [node name="NPCs" type="Node" parent="."]
 
 [node name="Path2D" type="Path2D" parent="NPCs"]
+visible = false
 curve = SubResource("Curve2D_k6x75")
 
 [node name="BusToClass" type="PathFollow2D" parent="NPCs/Path2D"]
